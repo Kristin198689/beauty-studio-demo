@@ -1,24 +1,22 @@
-import { whatsappHref } from "@/config/site";
+import { Link } from "@/i18n/navigation";
 import styles from "./BookLink.module.css";
 
+// Leads to the step-by-step booking page. WhatsApp is the last step there.
 export function BookLink({
   children,
-  message,
   className,
 }: {
   children: React.ReactNode;
-  message?: string;
   className?: string;
 }) {
-  const href = whatsappHref(message);
-  const external = href.startsWith("http");
   return (
-    <a
-      href={href}
+    <Link
+      href="/booking"
       className={`${styles.button} ${className ?? ""}`}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      data-magnetic
+      data-cursor="Book"
     >
       {children}
-    </a>
+    </Link>
   );
 }

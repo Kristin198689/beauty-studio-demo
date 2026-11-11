@@ -8,6 +8,15 @@
   border-radius: var(--radius-media);
 }
 
+.cut {
+  overflow: visible;
+  background: transparent;
+}
+
 .img {
   object-fit: cover;
+}
+
+.contain {
+  object-fit: contain;
 }

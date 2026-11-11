@@ -5,10 +5,10 @@
   gap: var(--space-16);
   min-height: 80svh;
   padding: var(--section-y) var(--gutter);
-  background: var(--color-field);
-  color: var(--color-on-field);
-  --btn-bg: var(--color-on-field);
-  --btn-ink: var(--color-field);
+  background: var(--color-plum);
+  color: var(--color-on-plum);
+  --btn-bg: var(--color-on-plum);
+  --btn-ink: var(--color-plum);
 }
 
 .sentence {
@@ -20,8 +20,8 @@
 .price {
   display: inline-block;
   padding: 0 0.15em;
-  background: var(--color-on-field);
-  color: var(--color-field);
+  background: var(--color-on-plum);
+  color: var(--color-plum);
 }
 
 .foot {

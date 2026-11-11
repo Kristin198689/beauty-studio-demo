@@ -1,0 +1,31 @@
+.main {
+  display: grid;
+  gap: var(--space-16);
+  min-height: 100svh;
+  padding: calc(var(--header-h) + var(--space-16)) var(--gutter) var(--section-y);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(3rem, 1.5rem + 8vw, 10rem);
+  line-height: 0.86;
+  letter-spacing: var(--tracking-display);
+}
+
+@media (min-width: 64rem) {
+  .main {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--grid-gap);
+    align-content: start;
+  }
+
+  .title {
+    grid-column: 1 / 7;
+  }
+
+  .main > div {
+    grid-column: 7 / -1;
+    padding-top: var(--space-8);
+  }
+}

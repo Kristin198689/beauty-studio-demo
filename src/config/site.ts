@@ -7,8 +7,8 @@ export const siteConfig = {
   instagram: "",
 };
 
-export function whatsappHref(message?: string): string {
+export function whatsappHref(message?: string, fallback = "#contact"): string {
   const digits = siteConfig.whatsappNumber.replace(/\D/g, "");
-  if (!digits) return "/#contact";
+  if (!digits) return fallback;
   return `https://wa.me/${digits}${message ? `?text=${encodeURIComponent(message)}` : ""}`;
 }

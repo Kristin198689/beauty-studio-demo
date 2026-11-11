@@ -1,0 +1,28 @@
+.marquee {
+  overflow: hidden;
+  padding-block: var(--space-6);
+  background: var(--color-field);
+  color: var(--color-on-field);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.set {
+  display: flex;
+  flex: none;
+  align-items: baseline;
+  font-size: clamp(3.5rem, 13vw, 13rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.set > span {
+  padding-right: 0.35em;
+}

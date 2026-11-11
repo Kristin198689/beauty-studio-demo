@@ -6,6 +6,7 @@ import { Faq } from "@/components/sections/Faq";
 import { Gallery } from "@/components/sections/Gallery";
 import { Hero } from "@/components/sections/Hero";
 import { Intro } from "@/components/sections/Intro";
+import { MarqueeStrip } from "@/components/sections/MarqueeStrip";
 import { Pricing } from "@/components/sections/Pricing";
 import { Services } from "@/components/sections/Services";
 
@@ -16,6 +17,7 @@ export default function HomePage({ params }: PageProps<"/[locale]">) {
   return (
     <main>
       <Hero />
+      <MarqueeStrip />
       <Intro />
       <Services />
       <Gallery />

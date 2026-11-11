@@ -10,11 +10,11 @@ export function Intro() {
       <p className={`${styles.text} reveal`}>
         {t("a")}{" "}
         <span className={styles.frame} aria-hidden="true">
-          <Photo slot="introA" sizes="80px" />
+          <Photo slot="introA" sizes="80px" mask />
         </span>{" "}
         {t("b")}{" "}
         <span className={styles.frame} aria-hidden="true">
-          <Photo slot="introB" sizes="80px" />
+          <Photo slot="introB" sizes="80px" mask />
         </span>{" "}
         {t("c")}
       </p>

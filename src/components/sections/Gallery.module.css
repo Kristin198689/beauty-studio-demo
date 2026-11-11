@@ -1,94 +1,124 @@
-.section {
+.panel {
   position: relative;
+  flex: none;
   display: grid;
   place-items: center;
-  min-height: 100svh;
-  overflow: hidden;
-  background: var(--color-field);
-  color: var(--color-on-field);
+  height: 100%;
+}
+
+.intro {
+  align-content: center;
+  gap: var(--space-8);
+  justify-items: start;
 }
 
 .title {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-size: clamp(2.5rem, 12vw, 13rem);
-  line-height: 0.85;
+  font-size: clamp(3.25rem, 13vw, 13rem);
+  line-height: 0.82;
   letter-spacing: var(--tracking-display);
-  text-align: center;
+  white-space: nowrap;
 }
 
-.print {
+.hint {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card {
+  position: relative;
+  margin: 0;
+}
+
+.wide {
+  width: min(104vw, calc(54svh * 1.7778));
+  aspect-ratio: 16 / 9;
+}
+
+.portrait {
+  height: min(62svh, 38rem);
+  aspect-ratio: 4 / 5;
+}
+
+.cap {
   position: absolute;
-  border: 8px solid var(--color-on-field);
-  transition: transform var(--dur-base) var(--ease-out);
+  left: 0;
+  bottom: calc(-1 * var(--space-6));
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.print > span {
-  aspect-ratio: 3 / 4;
-  height: auto;
+/* giant word behind, cut-out in front */
+.stack {
+  min-width: min(96vw, 52rem);
 }
 
-.a {
-  top: 50%;
-  left: 50%;
-  width: 52vw;
-  transform: translate(-95%, -50%) rotate(-8deg);
-}
-
-.b {
-  top: 50%;
-  left: 50%;
-  width: 52vw;
-  transform: translate(-5%, -45%) rotate(6deg);
-}
-
-.c {
-  display: none;
-}
-
-.text {
+.word {
   position: absolute;
-  left: var(--gutter);
-  bottom: var(--space-6);
-  max-width: 20rem;
-  font-size: var(--fs-body);
+  inset: 50% auto auto 50%;
+  margin: 0;
+  font-size: clamp(6rem, 28vw, 28rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  color: color-mix(in srgb, var(--color-on-field) 14%, transparent);
+  pointer-events: none;
 }
 
-@media (min-width: 56rem) {
-  .title {
-    font-size: clamp(3.25rem, 14vw, 13rem);
-  }
+.word.italic {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 300;
+  text-transform: none;
+  color: color-mix(in srgb, var(--color-plum-bright) 55%, transparent);
+}
 
-  .a,
-  .b {
-    width: 26vw;
-  }
+.cut {
+  position: absolute;
+  inset: auto auto 0 50%;
+  width: min(60vw, 28rem);
+  height: min(78svh, 46rem);
+  margin-left: -4rem;
+  pointer-events: none;
+}
 
-  .a {
-    transform: translate(-85%, -50%) rotate(-8deg);
-  }
+.pair {
+  grid-auto-flow: column;
+  gap: clamp(1.5rem, 5vw, 5rem);
+  align-items: center;
+}
 
-  .b {
-    transform: translate(-15%, -42%) rotate(6deg);
-  }
+.up {
+  align-self: start;
+  margin-top: 14svh;
+}
 
-  .c {
-    display: block;
-    top: auto;
-    right: var(--gutter);
-    bottom: -3vw;
-    width: 16vw;
-    transform: rotate(3deg);
-  }
+.down {
+  align-self: end;
+  margin-bottom: 14svh;
+}
 
-  .a:hover {
-    transform: translate(-85%, -50%) rotate(0deg);
-    z-index: 2;
-  }
+.end {
+  align-content: center;
+  justify-items: start;
+  gap: var(--space-8);
+  min-width: min(90vw, 50rem);
+}
 
-  .b:hover {
-    transform: translate(-15%, -42%) rotate(0deg);
-    z-index: 2;
-  }
+.endText {
+  max-width: 14ch;
+  font-size: clamp(2.5rem, 9vw, 8rem);
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
 }

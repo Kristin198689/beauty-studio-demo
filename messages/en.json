@@ -9,7 +9,9 @@
     "about": "Studio",
     "contact": "Contact",
     "book": "Book now",
-    "language": "Language"
+    "language": "Language",
+    "menu": "Menu",
+    "close": "Close"
   },
   "hero": {
     "line1": "Lashes, nails",
@@ -27,7 +29,11 @@
     "title1": "Care for lashes,",
     "title2": "nails and <em>hair</em>",
     "label": "Services",
-    "groups": { "lashes": "Lashes", "nails": "Nails", "hair": "Hair" },
+    "groups": {
+      "lashes": "Lashes",
+      "nails": "Nails",
+      "hair": "Hair"
+    },
     "items": {
       "classic": "Classic lash extensions",
       "volume": "Volume lash extensions",
@@ -41,7 +47,23 @@
   "gallery": {
     "title1": "Selected",
     "title2": "<em>work</em>",
-    "text": "A look at the details we care about most."
+    "text": "A look at the details we care about most.",
+    "hint": "Scroll",
+    "cta": "Book your next appointment",
+    "words": {
+      "a": "Lashes",
+      "b": "Nails",
+      "c": "Hair"
+    },
+    "captions": [
+      "Detail",
+      "Gloss",
+      "Movement",
+      "Light",
+      "Contrast",
+      "Precision",
+      "Finish"
+    ]
   },
   "about": {
     "lead": "The studio",
@@ -64,11 +86,26 @@
   "faq": {
     "title": "Questions",
     "items": [
-      { "q": "How do I book an appointment?", "a": "Write to us on WhatsApp with the treatment and your preferred day. We confirm the time personally." },
-      { "q": "How long does an appointment take?", "a": "It depends on the treatment. We tell you the expected duration when you book." },
-      { "q": "Can I change or cancel my appointment?", "a": "Yes, please let us know in good time. Details of our cancellation terms: TODO." },
-      { "q": "Which languages do you speak?", "a": "German, Ukrainian and English." },
-      { "q": "How can I pay?", "a": "TODO payment methods." }
+      {
+        "q": "How do I book an appointment?",
+        "a": "Write to us on WhatsApp with the treatment and your preferred day. We confirm the time personally."
+      },
+      {
+        "q": "How long does an appointment take?",
+        "a": "It depends on the treatment. We tell you the expected duration when you book."
+      },
+      {
+        "q": "Can I change or cancel my appointment?",
+        "a": "Yes, please let us know in good time. Details of our cancellation terms: TODO."
+      },
+      {
+        "q": "Which languages do you speak?",
+        "a": "German, Ukrainian and English."
+      },
+      {
+        "q": "How can I pay?",
+        "a": "TODO payment methods."
+      }
     ]
   },
   "contact": {
@@ -83,9 +120,62 @@
     "cta": "Book now",
     "imprint": "Impressum",
     "privacy": "Datenschutz",
-    "rights": "All rights reserved"
+    "rights": "All rights reserved",
+    "navTitle": "Studio",
+    "contactTitle": "Contact",
+    "hoursTitle": "Hours",
+    "hours": "TODO opening hours",
+    "address": "TODO address",
+    "social": "Instagram",
+    "top": "Back to top"
   },
   "legal": {
     "todo": "TODO: text requires legal review."
+  },
+  "marquee": {
+    "a": "Lashes",
+    "b": "<em>nails</em>",
+    "c": "Hair"
+  },
+  "booking": {
+    "title1": "Book your",
+    "title2": "<em>appointment</em>",
+    "back": "Back",
+    "next": "Continue",
+    "send": "Send via WhatsApp",
+    "step": "Step",
+    "of": "of",
+    "steps": {
+      "service": "What would you like?",
+      "day": "Which day suits you?",
+      "time": "Preferred time of day",
+      "details": "How can we reach you?",
+      "review": "Check and send"
+    },
+    "times": {
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "evening": "Evening",
+      "flexible": "Flexible"
+    },
+    "fields": {
+      "name": "Your name",
+      "note": "Anything we should know (optional)"
+    },
+    "errors": {
+      "service": "Choose a service",
+      "day": "Choose a day",
+      "time": "Choose a time of day",
+      "name": "Enter your name"
+    },
+    "labels": {
+      "service": "Service",
+      "day": "Day",
+      "time": "Time of day",
+      "name": "Name"
+    },
+    "message": "Hello! I would like to book an appointment.",
+    "privacy": "Your details are only used to open a WhatsApp message to the studio. Nothing is stored on this site.",
+    "noNumber": "TODO: the studio WhatsApp number is not set yet."
   }
 }

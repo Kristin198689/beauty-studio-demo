@@ -1,0 +1,189 @@
+.wizard {
+  max-width: 44rem;
+}
+
+.count {
+  margin-bottom: var(--space-3);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.bars {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-2);
+  margin-bottom: var(--space-12);
+}
+
+.bars span {
+  height: 4px;
+  background: color-mix(in srgb, currentColor 20%, transparent);
+  transition: background 400ms var(--ease-out);
+}
+
+.bars span[data-done="true"] {
+  background: var(--color-plum-bright);
+}
+
+.q {
+  margin-bottom: var(--space-8);
+  font-size: clamp(1.75rem, 1.2rem + 2.4vw, 3.25rem);
+  line-height: 1;
+  outline: none;
+}
+
+.options {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.option {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.option input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+}
+
+.option span {
+  display: block;
+  padding: var(--space-4) var(--space-6);
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  transition:
+    background 250ms var(--ease-out),
+    color 250ms var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.option input:checked + span {
+  background: var(--color-plum-bright);
+  color: #fff;
+}
+
+.option input:focus-visible + span {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.option:active span {
+  transform: scale(0.985);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .option:hover input:not(:checked) + span {
+    background: color-mix(in srgb, currentColor 16%, transparent);
+  }
+}
+
+.field {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.label {
+  margin-top: var(--space-3);
+  font-size: var(--fs-small);
+  font-weight: 500;
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-4);
+  border: 0;
+  border-radius: 0;
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  color: inherit;
+  font: inherit;
+  font-size: max(1rem, var(--fs-lead));
+}
+
+.input:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.summary {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+}
+
+.summary div {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.summary dt {
+  font-size: var(--fs-small);
+  opacity: 0.65;
+}
+
+.summary dd {
+  margin: 0;
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.error {
+  margin-top: var(--space-4);
+  font-weight: 500;
+  color: var(--color-plum-bright);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-12);
+}
+
+.back {
+  padding: var(--space-3) 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  cursor: pointer;
+}
+
+.next {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3.25rem;
+  padding: 0 var(--space-8);
+  border: 0;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.next:active {
+  transform: scale(0.97);
+}
+
+.note {
+  margin-top: var(--space-6);
+  max-width: 34rem;
+  font-size: var(--fs-small);
+  opacity: 0.75;
+}

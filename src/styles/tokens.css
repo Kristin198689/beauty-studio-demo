@@ -11,6 +11,8 @@
   --p-surface: #e2dfd8;
   --p-ink: #0a0a0a;
   --p-ink-soft: #66635c;
+  --p-plum-900: #3d0f2b;
+  --p-plum-500: #8a1c6e;
 
   /* primitives: type */
   --display-transform: uppercase;
@@ -20,7 +22,7 @@
   --font-accent: var(--font-accent-family, Georgia, serif);
   --accent-scale: 1.25;
 
-  --fs-display: clamp(2.5rem, 11vw, 11rem);
+  --fs-display: clamp(2rem, 11vw, 20rem);
   --fs-head: clamp(2.25rem, 1.2rem + 5.2vw, 6.5rem);
   --fs-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
   --fs-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
@@ -64,6 +66,9 @@
   --color-on-accent: var(--p-paper);
   --color-field: var(--p-ink);
   --color-on-field: var(--p-paper);
+  --color-plum: var(--p-plum-900);
+  --color-plum-bright: var(--p-plum-500);
+  --color-on-plum: var(--p-paper);
 }
 
 @media (prefers-reduced-motion: reduce) {

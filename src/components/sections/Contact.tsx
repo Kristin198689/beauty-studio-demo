@@ -13,7 +13,7 @@ export function Contact() {
       <h2 className="srOnly">{nav("contact")}</h2>
       <p className={`${styles.text} reveal`}>{t("text")}</p>
       <div className={styles.portrait}>
-        <Photo slot="contactPortrait" sizes="170px" />
+        <Photo slot="contactPortrait" sizes="170px" mask />
       </div>
       <div className={styles.links}>
         <p className={styles.question}>{t("question")}</p>

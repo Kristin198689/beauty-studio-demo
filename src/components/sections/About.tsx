@@ -24,7 +24,7 @@ export function About() {
       <div className={`${styles.story} reveal`}>
         <p className={styles.p}>
           <span className={styles.portrait} aria-hidden="true">
-            <Photo slot="aboutPortrait" sizes="160px" />
+            <Photo slot="aboutPortrait" sizes="160px" mask blend="multiply" />
           </span>
           <strong>{t("lead")}</strong>
           {t("p1")}

@@ -9,7 +9,9 @@
     "about": "Studio",
     "contact": "Kontakt",
     "book": "Termin buchen",
-    "language": "Sprache"
+    "language": "Sprache",
+    "menu": "Menü",
+    "close": "Schließen"
   },
   "hero": {
     "line1": "Wimpern, Nägel",
@@ -27,7 +29,11 @@
     "title1": "Pflege für Wimpern,",
     "title2": "Nägel und <em>Haare</em>",
     "label": "Leistungen",
-    "groups": { "lashes": "Wimpern", "nails": "Nägel", "hair": "Haare" },
+    "groups": {
+      "lashes": "Wimpern",
+      "nails": "Nägel",
+      "hair": "Haare"
+    },
     "items": {
       "classic": "Wimpernverlängerung klassisch",
       "volume": "Wimpernverlängerung Volumen",
@@ -41,7 +47,23 @@
   "gallery": {
     "title1": "Ausgewählte",
     "title2": "<em>Arbeiten</em>",
-    "text": "Ein Blick auf die Details, die uns am wichtigsten sind."
+    "text": "Ein Blick auf die Details, die uns am wichtigsten sind.",
+    "hint": "Scrollen",
+    "cta": "Nächsten Termin buchen",
+    "words": {
+      "a": "Wimpern",
+      "b": "Nägel",
+      "c": "Haare"
+    },
+    "captions": [
+      "Detail",
+      "Glanz",
+      "Bewegung",
+      "Licht",
+      "Kontrast",
+      "Präzision",
+      "Finish"
+    ]
   },
   "about": {
     "lead": "Das Studio",
@@ -64,11 +86,26 @@
   "faq": {
     "title": "Fragen",
     "items": [
-      { "q": "Wie buche ich einen Termin?", "a": "Schreiben Sie uns per WhatsApp mit der gewünschten Behandlung und Ihrem Wunschtag. Die Uhrzeit bestätigen wir persönlich." },
-      { "q": "Wie lange dauert ein Termin?", "a": "Das hängt von der Behandlung ab. Die voraussichtliche Dauer nennen wir Ihnen bei der Buchung." },
-      { "q": "Kann ich meinen Termin ändern oder absagen?", "a": "Ja, bitte geben Sie uns rechtzeitig Bescheid. Details zu den Stornobedingungen: TODO." },
-      { "q": "Welche Sprachen sprechen Sie?", "a": "Deutsch, Ukrainisch und Englisch." },
-      { "q": "Wie kann ich bezahlen?", "a": "TODO Zahlungsarten." }
+      {
+        "q": "Wie buche ich einen Termin?",
+        "a": "Schreiben Sie uns per WhatsApp mit der gewünschten Behandlung und Ihrem Wunschtag. Die Uhrzeit bestätigen wir persönlich."
+      },
+      {
+        "q": "Wie lange dauert ein Termin?",
+        "a": "Das hängt von der Behandlung ab. Die voraussichtliche Dauer nennen wir Ihnen bei der Buchung."
+      },
+      {
+        "q": "Kann ich meinen Termin ändern oder absagen?",
+        "a": "Ja, bitte geben Sie uns rechtzeitig Bescheid. Details zu den Stornobedingungen: TODO."
+      },
+      {
+        "q": "Welche Sprachen sprechen Sie?",
+        "a": "Deutsch, Ukrainisch und Englisch."
+      },
+      {
+        "q": "Wie kann ich bezahlen?",
+        "a": "TODO Zahlungsarten."
+      }
     ]
   },
   "contact": {
@@ -83,9 +120,62 @@
     "cta": "Termin buchen",
     "imprint": "Impressum",
     "privacy": "Datenschutz",
-    "rights": "Alle Rechte vorbehalten"
+    "rights": "Alle Rechte vorbehalten",
+    "navTitle": "Studio",
+    "contactTitle": "Kontakt",
+    "hoursTitle": "Öffnungszeiten",
+    "hours": "TODO Öffnungszeiten",
+    "address": "TODO Adresse",
+    "social": "Instagram",
+    "top": "Nach oben"
   },
   "legal": {
     "todo": "TODO: Text benötigt rechtliche Prüfung."
+  },
+  "marquee": {
+    "a": "Wimpern",
+    "b": "<em>nägel</em>",
+    "c": "Haare"
+  },
+  "booking": {
+    "title1": "Termin",
+    "title2": "<em>buchen</em>",
+    "back": "Zurück",
+    "next": "Weiter",
+    "send": "Per WhatsApp senden",
+    "step": "Schritt",
+    "of": "von",
+    "steps": {
+      "service": "Was möchten Sie?",
+      "day": "Welcher Tag passt Ihnen?",
+      "time": "Bevorzugte Tageszeit",
+      "details": "Wie erreichen wir Sie?",
+      "review": "Prüfen und senden"
+    },
+    "times": {
+      "morning": "Vormittag",
+      "afternoon": "Nachmittag",
+      "evening": "Abend",
+      "flexible": "Flexibel"
+    },
+    "fields": {
+      "name": "Ihr Name",
+      "note": "Etwas, das wir wissen sollten (optional)"
+    },
+    "errors": {
+      "service": "Wählen Sie eine Leistung",
+      "day": "Wählen Sie einen Tag",
+      "time": "Wählen Sie eine Tageszeit",
+      "name": "Geben Sie Ihren Namen ein"
+    },
+    "labels": {
+      "service": "Leistung",
+      "day": "Tag",
+      "time": "Tageszeit",
+      "name": "Name"
+    },
+    "message": "Hallo! Ich möchte gern einen Termin buchen.",
+    "privacy": "Ihre Angaben werden nur verwendet, um eine WhatsApp-Nachricht an das Studio zu öffnen. Auf dieser Seite wird nichts gespeichert.",
+    "noNumber": "TODO: Die WhatsApp-Nummer des Studios ist noch nicht hinterlegt."
   }
 }

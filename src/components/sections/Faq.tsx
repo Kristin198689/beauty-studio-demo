@@ -7,7 +7,7 @@ export function Faq() {
 
   return (
     <section id="faq" className={styles.section} data-chapter="paper">
-      <h2 className={styles.heading}>{t("title")}</h2>
+      <h2 className={styles.heading} data-split>{t("title")}</h2>
       <div className={styles.list}>
         {items.map((item) => (
           <div key={item.q} className={`${styles.row} reveal`}>

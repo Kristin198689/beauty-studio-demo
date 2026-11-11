@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 import { fontAccent, fontMain } from "@/config/fonts";
 import { routing } from "@/i18n/routing";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { Motion } from "@/components/motion/Motion";
+import { StickyCta } from "@/components/StickyCta";
+import { siteConfig } from "@/config/site";
 import "../globals.css";
 
 export function generateStaticParams() {
@@ -32,12 +36,18 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       className={`${fontMain.variable} ${fontAccent.variable}`}
+      suppressHydrationWarning
     >
       <body>
+        <Script id="js-flag" strategy="beforeInteractive">
+          {"document.documentElement.classList.add('js');setTimeout(function(){if(!window.__motionReady)document.documentElement.classList.add('motion-failsafe')},4000)"}
+        </Script>
         <NextIntlClientProvider>
+          <Motion name={siteConfig.name} />
           <Header />
           {children}
           <Footer />
+          <StickyCta />
         </NextIntlClientProvider>
       </body>
     </html>

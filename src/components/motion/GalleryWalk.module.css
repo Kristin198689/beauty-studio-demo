@@ -1,0 +1,54 @@
+.section {
+  background: var(--color-field);
+  color: var(--color-on-field);
+  --btn-bg: var(--color-on-field);
+  --btn-ink: var(--color-field);
+}
+
+.pin {
+  position: relative;
+  height: 100svh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.pin::-webkit-scrollbar {
+  display: none;
+}
+
+.section[data-pinned="true"] .pin {
+  overflow: hidden;
+  scroll-snap-type: none;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 6vw, 6rem);
+  width: max-content;
+  height: 100%;
+  padding-inline: var(--gutter);
+  will-change: transform;
+}
+
+.progress {
+  position: absolute;
+  inset: auto var(--gutter) var(--space-6) var(--gutter);
+  height: 4px;
+  background: color-mix(in srgb, var(--color-on-field) 22%, transparent);
+  pointer-events: none;
+}
+
+.bar {
+  display: block;
+  height: 100%;
+  background: var(--color-plum-bright);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.section:not([data-pinned="true"]) .progress {
+  display: none;
+}

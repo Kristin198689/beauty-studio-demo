@@ -7,7 +7,7 @@ export function Pricing() {
 
   return (
     <section id="pricing" className={styles.section} data-chapter="field">
-      <h2 className={`${styles.sentence} reveal`}>
+      <h2 className={styles.sentence} data-split>
         {t("pre")} <span className={styles.price}>{t("price")}</span>
       </h2>
       <div className={styles.foot}>
