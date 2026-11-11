@@ -19,20 +19,20 @@
       "title": "Bereiche",
       "home": "Start",
       "services": "Leistungen",
-      "inside": "Eintreten",
+      "inside": "Blickwinkel",
       "work": "Arbeiten",
       "about": "Studio",
-      "closer": "Nah dran",
+      "closer": "Blick",
       "prices": "Preise",
-      "cards": "Karten",
+      "cards": "Inspiration",
       "quiz": "Quiz",
       "lookbook": "Lookbook",
       "faq": "Fragen",
-      "world": "Welt",
-      "move": "Bewegung",
+      "world": "Kollektion",
+      "move": "Mosaik",
       "light": "Licht",
-      "floor": "Boden",
-      "doors": "Türen",
+      "floor": "Ihr Look",
+      "doors": "Für Sie",
       "contact": "Kontakt"
     }
   },
@@ -262,37 +262,37 @@
     "scroll": "Scrollen",
     "drag": "Maus bewegen",
     "tunnel": {
-      "title1": "Treten Sie",
-      "title2": "<em>ein</em>"
+      "title1": "Jeder",
+      "title2": "<em>Blickwinkel</em>"
     },
     "pupil": {
-      "title1": "Schauen Sie",
-      "title2": "<em>genauer hin</em>",
+      "title1": "Alles beginnt",
+      "title2": "mit dem <em>Blick</em>",
       "reveal": "Jedes Detail zählt"
     },
     "deck": {
-      "title1": "Ziehen Sie",
-      "title2": "<em>eine Karte</em>"
+      "title1": "Finden Sie",
+      "title2": "<em>Inspiration</em>"
     },
     "carousel": {
-      "title1": "Drehen Sie die",
-      "title2": "<em>Welt</em>"
+      "title1": "Die",
+      "title2": "<em>Kollektion</em>"
     },
     "wall": {
-      "title1": "Bewegen",
-      "title2": "<em>Sie sich</em>"
+      "title1": "Mosaik der",
+      "title2": "<em>Schönheit</em>"
     },
     "book": {
       "title1": "Das",
       "title2": "<em>Lookbook</em>"
     },
     "doors": {
-      "left": "Mach",
-      "right": "<em>auf</em>"
+      "left": "Zeit",
+      "right": "<em>für Sie</em>"
     },
     "floor": {
-      "title1": "Betreten Sie",
-      "title2": "<em>den Boden</em>"
+      "title1": "Der Weg zu",
+      "title2": "Ihrem <em>Look</em>"
     }
   },
   "dividers": {
@@ -314,7 +314,7 @@
         }
       ]
     },
-    "b": "Licht, Haut, <em>Detail</em>",
+    "b": "Mutig. Klar. <em>Ihr Look</em>",
     "process": {
       "title": "So läuft ein Termin ab",
       "items": [

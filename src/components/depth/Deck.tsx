@@ -64,7 +64,7 @@ export function Deck() {
   }, [cards.length]);
 
   return (
-    <section id="cards" ref={ref} className={styles.section} data-chapter="paper" aria-label={t("deck.title1")}>
+    <section id="cards" ref={ref} className={styles.section} data-chapter="paper" aria-label={`${t("deck.title1")} ${String(t.raw("deck.title2")).replace(/<\/?em>/g, "")}`}>
       <div className={styles.pin} data-pin>
         <h2 className={styles.title} data-split>
           <span>{t("deck.title1")}</span>

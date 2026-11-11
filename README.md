@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Beauty studio, шаблон сайта
 
-## Getting Started
+Next.js 16, TypeScript, CSS Modules, next-intl (de, uk, en), GSAP и Lenis для анимаций.
 
-First, run the development server:
+## Запуск
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # разработка, http://localhost:3000
+npm run build    # проверка сборки
+npm run start    # боевой режим после build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Node 20 или новее.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Что менять под клиента
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Что | Где |
+|---|---|
+| Название студии, номер WhatsApp, телефон, e-mail, Instagram, выходные дни, занятые даты | `src/config/site.ts` |
+| Адрес сайта для SEO (sitemap, canonical) | переменная окружения `NEXT_PUBLIC_SITE_URL` на хостинге |
+| Цвета, размеры шрифтов, отступы, тайминги | `src/styles/tokens.css` |
+| Шрифты | `src/config/fonts.ts` |
+| Фото | `src/config/images.ts` и `src/config/pool.ts`, файлы в `public/images` |
+| Тексты на трёх языках | `messages/de.json`, `messages/uk.json`, `messages/en.json` |
+| Якоря и меню разделов | `src/config/sections.ts` |
+| Переход между страницами (моргание или шторка) | `siteConfig.transition` в `src/config/site.ts` |
 
-## Learn More
+Пока значения не заданы, на сайте стоят пометки `TODO`.
 
-To learn more about Next.js, take a look at the following resources:
+## Запись
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Запись это заявка. Клиент выбирает услугу, основной и запасной день, время суток и имя, после чего открывается сообщение в WhatsApp. Сайт ничего не хранит и не отправляет на сервер. Подтверждает время мастер.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Перед запуском
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Заполнить `src/config/site.ts` и все `TODO` в `messages/*.json`.
+- Заменить тексты Impressum и Datenschutz, их должен проверить юрист.
+- Задать `NEXT_PUBLIC_SITE_URL`.
+- Добавить картинку для превью в соцсетях (1200×630).
+- Заменить сгенерированные фото на настоящие, фото «до и после» только реальные.

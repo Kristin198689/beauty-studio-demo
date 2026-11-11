@@ -53,7 +53,7 @@ export function Tunnel() {
   }, [frames.length]);
 
   return (
-    <section id="inside" ref={ref} className={styles.section} data-chapter="field" aria-label={t("tunnel.title1")}>
+    <section id="inside" ref={ref} className={styles.section} data-chapter="field" aria-label={`${t("tunnel.title1")} ${String(t.raw("tunnel.title2")).replace(/<\/?em>/g, "")}`}>
       <div className={styles.pin} data-pin>
         <h2 className={styles.title} data-split>
           <span>{t("tunnel.title1")}</span>

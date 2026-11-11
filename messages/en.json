@@ -19,20 +19,20 @@
       "title": "Sections",
       "home": "Home",
       "services": "Services",
-      "inside": "Inside",
+      "inside": "Angles",
       "work": "Work",
       "about": "Studio",
-      "closer": "Closer",
+      "closer": "Look",
       "prices": "Prices",
-      "cards": "Cards",
+      "cards": "Inspiration",
       "quiz": "Quiz",
       "lookbook": "Lookbook",
       "faq": "Questions",
-      "world": "World",
-      "move": "Move",
+      "world": "Collection",
+      "move": "Mosaic",
       "light": "Light",
-      "floor": "Floor",
-      "doors": "Doors",
+      "floor": "Your look",
+      "doors": "For you",
       "contact": "Contact"
     }
   },
@@ -262,37 +262,37 @@
     "scroll": "Scroll",
     "drag": "Move your cursor",
     "tunnel": {
-      "title1": "Step",
-      "title2": "<em>inside</em>"
+      "title1": "Every",
+      "title2": "<em>angle</em>"
     },
     "pupil": {
-      "title1": "Look",
-      "title2": "<em>closer</em>",
+      "title1": "It starts with a",
+      "title2": "<em>look</em>",
       "reveal": "Every detail counts"
     },
     "deck": {
-      "title1": "Pick a",
-      "title2": "<em>card</em>"
+      "title1": "Find",
+      "title2": "<em>inspiration</em>"
     },
     "carousel": {
-      "title1": "Turn the",
-      "title2": "<em>world</em>"
+      "title1": "The",
+      "title2": "<em>collection</em>"
     },
     "wall": {
-      "title1": "Move",
-      "title2": "<em>around</em>"
+      "title1": "Mosaic of",
+      "title2": "<em>beauty</em>"
     },
     "book": {
       "title1": "The",
       "title2": "<em>lookbook</em>"
     },
     "doors": {
-      "left": "Open",
-      "right": "<em>up</em>"
+      "left": "Time",
+      "right": "<em>for you</em>"
     },
     "floor": {
-      "title1": "Walk the",
-      "title2": "<em>floor</em>"
+      "title1": "The road to your",
+      "title2": "<em>look</em>"
     }
   },
   "dividers": {
@@ -314,7 +314,7 @@
         }
       ]
     },
-    "b": "Light, skin, <em>detail</em>",
+    "b": "Bold. Clean. <em>Your look</em>",
     "process": {
       "title": "How a visit works",
       "items": [

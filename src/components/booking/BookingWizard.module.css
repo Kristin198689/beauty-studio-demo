@@ -1,4 +1,5 @@
 .wizard {
+  min-width: 0;
   max-width: 44rem;
 }
 
@@ -253,10 +254,13 @@
 .days {
   display: flex;
   gap: var(--space-2);
-  margin: 0 calc(-1 * var(--gutter));
-  padding: 0 var(--gutter) var(--space-3);
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 0 var(--space-3);
   border: 0;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
   scroll-snap-type: x proximity;
   scrollbar-width: none;
 }

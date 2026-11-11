@@ -5,6 +5,10 @@
   padding: calc(var(--header-h) + var(--space-16)) var(--gutter) var(--section-y);
 }
 
+.main > * {
+  min-width: 0;
+}
+
 .title {
   display: flex;
   flex-direction: column;
@@ -20,7 +24,11 @@
     align-content: start;
   }
 
-  .title {
+  .main > * {
+  min-width: 0;
+}
+
+.title {
     grid-column: 1 / 7;
   }
 
