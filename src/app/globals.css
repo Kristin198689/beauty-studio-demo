@@ -104,7 +104,7 @@ a {
 .srOnly {
   position: absolute;
   width: 1px;
-  height: 1px;
+  height: 1px; /* taste-skill-ignore */
   margin: -1px;
   padding: 0;
   overflow: hidden;

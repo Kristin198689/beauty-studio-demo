@@ -84,7 +84,7 @@ export function Motion({ name }: { name: string }) {
       });
       tl.to(counter, {
         v: 100,
-        duration: 1.5,
+        duration: 1,
         ease: "power2.inOut",
         onUpdate: () => {
           if (countRef.current)
@@ -96,8 +96,8 @@ export function Motion({ name }: { name: string }) {
             sessionStorage.setItem("preloaded", "1");
           } catch {}
         })
-        .to(pre, { yPercent: -100, duration: 1, ease: "expo.inOut" })
-        .add(resolveReady, "-=0.55");
+        .to(pre, { yPercent: -100, duration: 0.8, ease: "expo.inOut" })
+        .add(resolveReady, "-=0.5");
       cleanups.push(() => tl.kill());
     }
 

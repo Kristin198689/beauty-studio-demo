@@ -5,10 +5,11 @@ import { notFound } from "next/navigation";
 import Script from "next/script";
 import { fontAccent, fontMain } from "@/config/fonts";
 import { routing } from "@/i18n/routing";
+import { buildMetadata } from "@/lib/seo";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Motion } from "@/components/motion/Motion";
-import { StickyCta } from "@/components/StickyCta";
+import { FloatingContact } from "@/components/FloatingContact";
 import { siteConfig } from "@/config/site";
 import "../globals.css";
 
@@ -21,7 +22,10 @@ export async function generateMetadata({
 }: LayoutProps<"/[locale]">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "meta" });
-  return { title: t("title"), description: t("description") };
+  return {
+    metadataBase: new URL(siteConfig.url),
+    ...buildMetadata({ locale, title: t("title"), description: t("description") }),
+  };
 }
 
 export default async function LocaleLayout({
@@ -47,7 +51,7 @@ export default async function LocaleLayout({
           <Header />
           {children}
           <Footer />
-          <StickyCta />
+          <FloatingContact />
         </NextIntlClientProvider>
       </body>
     </html>

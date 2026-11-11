@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { use } from "react";
+import { buildMetadata } from "@/lib/seo";
 import { BookingWizard } from "@/components/booking/BookingWizard";
 import styles from "./page.module.css";
 
@@ -10,7 +11,8 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/booking">): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "nav" });
-  return { title: t("book") };
+  const m = await getTranslations({ locale, namespace: "meta" });
+  return buildMetadata({ locale, path: "/booking", title: t("book"), description: m("description") });
 }
 
 export default function BookingPage({ params }: PageProps<"/[locale]/booking">) {
