@@ -174,12 +174,12 @@
     "title2": "<em>buchen</em>",
     "back": "Zurück",
     "next": "Weiter",
-    "send": "Per WhatsApp senden",
+    "send": "Anfrage per WhatsApp senden",
     "step": "Schritt",
     "of": "von",
     "steps": {
       "service": "Was möchten Sie?",
-      "day": "Welcher Tag passt Ihnen?",
+      "day": "Welche Tage passen Ihnen?",
       "time": "Bevorzugte Tageszeit",
       "details": "Wie erreichen wir Sie?",
       "review": "Prüfen und senden"
@@ -204,15 +204,21 @@
       "service": "Leistung",
       "day": "Tag",
       "time": "Tageszeit",
-      "name": "Name"
+      "name": "Name",
+      "backup": "Ausweichtag"
     },
-    "message": "Hallo! Ich möchte gern einen Termin buchen.",
+    "message": "Hallo! Ich möchte einen Termin anfragen. Bitte bestätigen Sie die Verfügbarkeit.",
     "privacy": "Ihre Angaben werden nur verwendet, um eine WhatsApp-Nachricht an das Studio zu öffnen. Auf dieser Seite wird nichts gespeichert.",
     "noNumber": "TODO: Die WhatsApp-Nummer des Studios ist noch nicht hinterlegt.",
     "thanksTitle": "Danke",
-    "thanksText": "Ihre Nachricht liegt in WhatsApp bereit. Die genaue Uhrzeit bestätigen wir persönlich.",
+    "thanksText": "Ihre Anfrage liegt in WhatsApp bereit. Verbindlich ist der Termin erst, wenn wir ihn mit Uhrzeit bestätigen.",
     "again": "Weiteren Termin buchen",
-    "daysLegend": "Tag wählen"
+    "daysLegend": "Tag wählen",
+    "requestNote": "Das ist eine Anfrage, keine verbindliche Buchung. Der gewählte Termin kann bereits vergeben sein. Wir antworten in WhatsApp und bestätigen die genaue Uhrzeit.",
+    "preferred": "Wunschtag",
+    "backup": "Ausweichtag (optional)",
+    "unavailable": "Nicht verfügbar",
+    "reviewNote": "Noch nicht bestätigt. Wir prüfen die Verfügbarkeit und bestätigen den Termin in WhatsApp."
   },
   "quiz": {
     "title1": "Finden Sie Ihre",

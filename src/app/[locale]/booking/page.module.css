@@ -8,7 +8,7 @@
 .title {
   display: flex;
   flex-direction: column;
-  font-size: clamp(3rem, 1.5rem + 8vw, 10rem);
+  font-size: clamp(2.5rem, 1rem + 6.2vw, 7.5rem);
   line-height: 0.86;
   letter-spacing: var(--tracking-display);
 }

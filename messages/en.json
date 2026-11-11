@@ -174,12 +174,12 @@
     "title2": "<em>appointment</em>",
     "back": "Back",
     "next": "Continue",
-    "send": "Send via WhatsApp",
+    "send": "Send request via WhatsApp",
     "step": "Step",
     "of": "of",
     "steps": {
       "service": "What would you like?",
-      "day": "Which day suits you?",
+      "day": "Which days suit you?",
       "time": "Preferred time of day",
       "details": "How can we reach you?",
       "review": "Check and send"
@@ -204,15 +204,21 @@
       "service": "Service",
       "day": "Day",
       "time": "Time of day",
-      "name": "Name"
+      "name": "Name",
+      "backup": "Alternative day"
     },
-    "message": "Hello! I would like to book an appointment.",
+    "message": "Hello! I would like to request an appointment. Please confirm availability.",
     "privacy": "Your details are only used to open a WhatsApp message to the studio. Nothing is stored on this site.",
     "noNumber": "TODO: the studio WhatsApp number is not set yet.",
     "thanksTitle": "Thank you",
-    "thanksText": "Your message is ready in WhatsApp. We confirm the exact time personally.",
+    "thanksText": "Your request is ready in WhatsApp. The appointment is only confirmed once we reply with the time.",
     "again": "Book another appointment",
-    "daysLegend": "Choose a day"
+    "daysLegend": "Choose a day",
+    "requestNote": "This is a request, not a confirmed booking. The time you choose may already be taken. We reply in WhatsApp and confirm the exact time.",
+    "preferred": "Preferred day",
+    "backup": "Backup day (optional)",
+    "unavailable": "Not available",
+    "reviewNote": "Not confirmed yet. We check availability and confirm the time in WhatsApp."
   },
   "quiz": {
     "title1": "Find your",

@@ -14,16 +14,23 @@ type Service = (typeof services)[number];
 type Time = (typeof times)[number];
 
 function nextDays(locale: string, count = 28) {
+  const { closedWeekdays, blockedDates, minLeadDays } = siteConfig.booking;
   const wd = new Intl.DateTimeFormat(locale, { weekday: "short" });
   const mo = new Intl.DateTimeFormat(locale, { month: "short" });
-  const out: { iso: string; wd: string; dn: number; mo: string }[] = [];
+  const out: { iso: string; wd: string; dn: number; mo: string; closed: boolean }[] = [];
   const base = new Date();
   base.setHours(12, 0, 0, 0);
-  for (let i = 0; i < count; i++) {
+  for (let i = minLeadDays; i < minLeadDays + count; i++) {
     const d = new Date(base);
     d.setDate(base.getDate() + i);
     const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-    out.push({ iso, wd: wd.format(d), dn: d.getDate(), mo: mo.format(d) });
+    out.push({
+      iso,
+      wd: wd.format(d),
+      dn: d.getDate(),
+      mo: mo.format(d),
+      closed: closedWeekdays.includes(d.getDay()) || blockedDates.includes(iso),
+    });
   }
   return out;
 }
@@ -46,6 +53,7 @@ export function BookingWizard() {
   const [step, setStep] = useState(initialService ? 1 : 0);
   const [service, setService] = useState<Service | null>(initialService);
   const [day, setDay] = useState("");
+  const [backup, setBackup] = useState("");
   const [time, setTime] = useState<Time | null>(null);
   const [name, setName] = useState("");
   const [note, setNote] = useState((params.get("note") ?? "").slice(0, 400));
@@ -54,10 +62,12 @@ export function BookingWizard() {
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   const current = STEPS[step];
+  const days = nextDays(locale);
 
   const validate = (): string => {
     if (current === "service" && !service) return t("errors.service");
-    if (current === "day" && (!day || day < todayIso())) return t("errors.day");
+    if (current === "day" && (!day || day < todayIso() || days.find((d) => d.iso === day)?.closed))
+      return t("errors.day");
     if (current === "time" && !time) return t("errors.time");
     if (current === "details" && name.trim().length < 2) return t("errors.name");
     return "";
@@ -75,13 +85,14 @@ export function BookingWizard() {
     go(step + 1);
   };
 
-  const dayLabel = day
-    ? new Intl.DateTimeFormat(locale, {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-      }).format(new Date(day + "T12:00:00"))
-    : "";
+  const fmt = (iso: string) =>
+    iso
+      ? new Intl.DateTimeFormat(locale, { weekday: "long", day: "numeric", month: "long" }).format(
+          new Date(iso + "T12:00:00"),
+        )
+      : "";
+  const dayLabel = fmt(day);
+  const backupLabel = fmt(backup);
   const serviceLabel = service ? s(`items.${service}`) : "";
   const timeLabel = time ? t(`times.${time}`) : "";
 
@@ -89,6 +100,7 @@ export function BookingWizard() {
     t("message"),
     `${t("labels.service")}: ${serviceLabel}`,
     `${t("labels.day")}: ${dayLabel}`,
+    backupLabel ? `${t("labels.backup")}: ${backupLabel}` : "",
     `${t("labels.time")}: ${timeLabel}`,
     `${t("labels.name")}: ${name.trim()}`,
     note.trim(),
@@ -117,6 +129,7 @@ export function BookingWizard() {
               setStep(0);
               setService(null);
               setDay("");
+              setBackup("");
               setTime(null);
               setName("");
               setNote("");
@@ -139,6 +152,10 @@ export function BookingWizard() {
           <span key={k} data-done={i <= step} />
         ))}
       </div>
+
+      <p className={styles.requestNote} role="note">
+        {t("requestNote")}
+      </p>
 
       <form
         onSubmit={(e) => {
@@ -170,25 +187,41 @@ export function BookingWizard() {
         )}
 
         {current === "day" && (
-          <fieldset className={styles.days} data-lenis-prevent>
-            <legend className="srOnly">{t("daysLegend")}</legend>
-            {nextDays(locale).map((d) => (
-              <label key={d.iso} className={styles.day}>
-                <input
-                  type="radio"
-                  name="day"
-                  value={d.iso}
-                  checked={day === d.iso}
-                  onChange={() => setDay(d.iso)}
-                />
-                <span>
-                  <small>{d.wd}</small>
-                  <b>{d.dn}</b>
-                  <small>{d.mo}</small>
-                </span>
-              </label>
+          <>
+            {[
+              { name: "day", legend: t("preferred"), value: day, set: setDay, skip: "" },
+              { name: "backup", legend: t("backup"), value: backup, set: setBackup, skip: day },
+            ].map((g) => (
+              <fieldset key={g.name} className={styles.days} data-lenis-prevent>
+                <legend className={styles.dayLegend}>{g.legend}</legend>
+                {days.map((d) => {
+                  const off = d.closed || d.iso === g.skip;
+                  return (
+                    <label key={d.iso} className={styles.day} title={d.closed ? t("unavailable") : undefined}>
+                      <input
+                        type="radio"
+                        name={g.name}
+                        value={d.iso}
+                        disabled={off}
+                        checked={g.value === d.iso}
+                        onChange={() => g.set(d.iso)}
+                      />
+                      <span>
+                        <small>{d.wd}</small>
+                        <b>{d.dn}</b>
+                        <small>{d.mo}</small>
+                      </span>
+                    </label>
+                  );
+                })}
+              </fieldset>
             ))}
-          </fieldset>
+            {backup ? (
+              <button type="button" className={styles.clear} onClick={() => setBackup("")}>
+                ×
+              </button>
+            ) : null}
+          </>
         )}
 
         {current === "time" && (
@@ -247,6 +280,12 @@ export function BookingWizard() {
               <dt>{t("labels.day")}</dt>
               <dd>{dayLabel}</dd>
             </div>
+            {backupLabel ? (
+              <div>
+                <dt>{t("labels.backup")}</dt>
+                <dd>{backupLabel}</dd>
+              </div>
+            ) : null}
             <div>
               <dt>{t("labels.time")}</dt>
               <dd>{timeLabel}</dd>
@@ -298,6 +337,7 @@ export function BookingWizard() {
 
         {current === "review" ? (
           <>
+            <p className={styles.reviewNote}>{t("reviewNote")}</p>
             {!hasNumber && !siteConfig.whatsappNumber ? (
               <p className={styles.note}>{t("noNumber")}</p>
             ) : null}
