@@ -1,0 +1,65 @@
+.header {
+  --header-ink: var(--color-text);
+  --btn-bg: var(--color-accent);
+  --btn-ink: var(--color-on-accent);
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  height: var(--header-h);
+  padding-inline: var(--gutter);
+  color: var(--header-ink);
+  transition: color 300ms var(--ease-out);
+}
+
+.header[data-ink="field"] {
+  --header-ink: var(--color-on-field);
+  --btn-bg: var(--color-on-field);
+  --btn-ink: var(--color-field);
+}
+
+.mark {
+  font-size: var(--fs-lead);
+  font-weight: 600;
+  letter-spacing: var(--tracking-head);
+  text-decoration: none;
+}
+
+.nav {
+  display: none;
+  gap: var(--space-8);
+  font-size: var(--fs-small);
+  font-weight: 500;
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.end {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.book {
+  min-height: 2.5rem;
+  padding-inline: var(--space-4);
+  font-size: var(--fs-small);
+  transition: background 300ms var(--ease-out), color 300ms var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+@media (min-width: 56rem) {
+  .nav {
+    display: flex;
+  }
+}

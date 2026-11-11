@@ -1,0 +1,27 @@
+.intro {
+  padding: var(--section-y) var(--gutter);
+}
+
+.text {
+  max-width: 62rem;
+  font-size: clamp(1.5rem, 1rem + 2.2vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.14;
+  letter-spacing: var(--tracking-head);
+}
+
+@media (min-width: 56rem) {
+  .text {
+    margin-inline: auto;
+    max-width: 64%;
+  }
+}
+
+.frame {
+  display: inline-block;
+  width: 1.2em;
+  height: 0.85em;
+  vertical-align: -0.1em;
+  overflow: hidden;
+  border-radius: var(--radius-inline);
+}

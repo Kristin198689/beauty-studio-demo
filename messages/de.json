@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "title": "Studio, Wimpernverlängerung, Maniküre und Friseur",
+    "description": "Wimpernverlängerung, Maniküre und Friseur unter einem Dach. Termin einfach per WhatsApp buchen."
+  },
+  "nav": {
+    "services": "Leistungen",
+    "gallery": "Arbeiten",
+    "about": "Studio",
+    "contact": "Kontakt",
+    "book": "Termin buchen",
+    "language": "Sprache"
+  },
+  "hero": {
+    "line1": "Wimpern, Nägel",
+    "line2Start": "und",
+    "line2End": "<em>Haare</em>",
+    "lead": "Wimpernverlängerung, Maniküre und Friseur unter einem Dach, mit Zeit für jedes Detail.",
+    "cta": "Termin buchen"
+  },
+  "intro": {
+    "a": "Ein ruhiges Studio für",
+    "b": "sorgfältige Pflege,",
+    "c": "ehrliche Beratung und Zeit für jeden Gast."
+  },
+  "services": {
+    "title1": "Pflege für Wimpern,",
+    "title2": "Nägel und <em>Haare</em>",
+    "label": "Leistungen",
+    "groups": { "lashes": "Wimpern", "nails": "Nägel", "hair": "Haare" },
+    "items": {
+      "classic": "Wimpernverlängerung klassisch",
+      "volume": "Wimpernverlängerung Volumen",
+      "manicure": "Maniküre",
+      "gel": "Gel-Lack",
+      "cut": "Schnitt und Styling",
+      "colour": "Farbe"
+    },
+    "price": "TODO Preis"
+  },
+  "gallery": {
+    "title1": "Ausgewählte",
+    "title2": "<em>Arbeiten</em>",
+    "text": "Ein Blick auf die Details, die uns am wichtigsten sind."
+  },
+  "about": {
+    "lead": "Das Studio",
+    "p1": " vereint Wimpernstylistinnen, Nageldesignerinnen und Friseure, die denselben Anspruch teilen: präzise Arbeit, ruhige Atmosphäre und ehrliche Beratung.",
+    "p2": "Jeder Termin beginnt mit einem Gespräch darüber, was zu Ihnen passt, damit sich das Ergebnis nach Ihnen anfühlt.",
+    "factPlace": "Ort",
+    "factPlaceValue": "TODO Stadt",
+    "factSince": "Seit",
+    "factSinceValue": "TODO Jahr",
+    "factReach": "Erreichbar",
+    "factReachValue": "WhatsApp"
+  },
+  "pricing": {
+    "pre": "Behandlungen ab",
+    "price": "TODO",
+    "text": "Der Endpreis hängt von Länge, Technik und Zeitaufwand ab. Den genauen Preis nennen wir vor Ihrem Termin.",
+    "cta": "Termin buchen",
+    "link": "Komplette Preisliste, TODO"
+  },
+  "faq": {
+    "title": "Fragen",
+    "items": [
+      { "q": "Wie buche ich einen Termin?", "a": "Schreiben Sie uns per WhatsApp mit der gewünschten Behandlung und Ihrem Wunschtag. Die Uhrzeit bestätigen wir persönlich." },
+      { "q": "Wie lange dauert ein Termin?", "a": "Das hängt von der Behandlung ab. Die voraussichtliche Dauer nennen wir Ihnen bei der Buchung." },
+      { "q": "Kann ich meinen Termin ändern oder absagen?", "a": "Ja, bitte geben Sie uns rechtzeitig Bescheid. Details zu den Stornobedingungen: TODO." },
+      { "q": "Welche Sprachen sprechen Sie?", "a": "Deutsch, Ukrainisch und Englisch." },
+      { "q": "Wie kann ich bezahlen?", "a": "TODO Zahlungsarten." }
+    ]
+  },
+  "contact": {
+    "text": "Fragen zu einer Behandlung oder einem Termin? Schreiben Sie uns, wir antworten so schnell wir können.",
+    "question": "Bereit für Ihren Termin?",
+    "whatsapp": "Per WhatsApp schreiben",
+    "note": "TODO Stadt, Antwortzeit"
+  },
+  "footer": {
+    "invite1": "Ihr nächster",
+    "invite2": "<em>Termin</em>",
+    "cta": "Termin buchen",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "rights": "Alle Rechte vorbehalten"
+  },
+  "legal": {
+    "todo": "TODO: Text benötigt rechtliche Prüfung."
+  }
+}

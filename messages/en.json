@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "title": "Studio, lash extensions, manicure and hair",
+    "description": "Lash extensions, manicure and hair under one roof. Book your appointment via WhatsApp."
+  },
+  "nav": {
+    "services": "Services",
+    "gallery": "Work",
+    "about": "Studio",
+    "contact": "Contact",
+    "book": "Book now",
+    "language": "Language"
+  },
+  "hero": {
+    "line1": "Lashes, nails",
+    "line2Start": "and",
+    "line2End": "<em>hair</em>",
+    "lead": "Lash extensions, manicure and hairdressing under one roof, with time for every detail.",
+    "cta": "Book an appointment"
+  },
+  "intro": {
+    "a": "A calm studio for",
+    "b": "considered care,",
+    "c": "honest advice and time for every guest."
+  },
+  "services": {
+    "title1": "Care for lashes,",
+    "title2": "nails and <em>hair</em>",
+    "label": "Services",
+    "groups": { "lashes": "Lashes", "nails": "Nails", "hair": "Hair" },
+    "items": {
+      "classic": "Classic lash extensions",
+      "volume": "Volume lash extensions",
+      "manicure": "Manicure",
+      "gel": "Gel polish",
+      "cut": "Cut and styling",
+      "colour": "Colour"
+    },
+    "price": "TODO price"
+  },
+  "gallery": {
+    "title1": "Selected",
+    "title2": "<em>work</em>",
+    "text": "A look at the details we care about most."
+  },
+  "about": {
+    "lead": "The studio",
+    "p1": " brings together lash artists, nail technicians and hairdressers who share one standard: precise work, a calm atmosphere and honest advice.",
+    "p2": "Every appointment starts with a conversation about what suits you, so the result feels like yours.",
+    "factPlace": "Place",
+    "factPlaceValue": "TODO city",
+    "factSince": "Since",
+    "factSinceValue": "TODO year",
+    "factReach": "Reach us",
+    "factReachValue": "WhatsApp"
+  },
+  "pricing": {
+    "pre": "Treatments from",
+    "price": "TODO",
+    "text": "Final prices depend on length, technique and time. We confirm the exact price before your appointment.",
+    "cta": "Book an appointment",
+    "link": "Full price list, TODO"
+  },
+  "faq": {
+    "title": "Questions",
+    "items": [
+      { "q": "How do I book an appointment?", "a": "Write to us on WhatsApp with the treatment and your preferred day. We confirm the time personally." },
+      { "q": "How long does an appointment take?", "a": "It depends on the treatment. We tell you the expected duration when you book." },
+      { "q": "Can I change or cancel my appointment?", "a": "Yes, please let us know in good time. Details of our cancellation terms: TODO." },
+      { "q": "Which languages do you speak?", "a": "German, Ukrainian and English." },
+      { "q": "How can I pay?", "a": "TODO payment methods." }
+    ]
+  },
+  "contact": {
+    "text": "Questions about a treatment or an appointment? Write to us, we reply as soon as we can.",
+    "question": "Ready to book?",
+    "whatsapp": "Write on WhatsApp",
+    "note": "TODO city, reply time"
+  },
+  "footer": {
+    "invite1": "Your next",
+    "invite2": "<em>appointment</em>",
+    "cta": "Book now",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz",
+    "rights": "All rights reserved"
+  },
+  "legal": {
+    "todo": "TODO: text requires legal review."
+  }
+}
