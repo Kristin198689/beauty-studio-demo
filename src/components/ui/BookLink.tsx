@@ -14,6 +14,7 @@ export function BookLink({
       href="/booking"
       className={`${styles.button} ${className ?? ""}`}
       data-magnetic
+      data-scramble
       data-cursor="Book"
     >
       {children}

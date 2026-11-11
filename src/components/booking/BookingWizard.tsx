@@ -29,6 +29,7 @@ export function BookingWizard() {
   const [name, setName] = useState("");
   const [note, setNote] = useState("");
   const [error, setError] = useState("");
+  const [done, setDone] = useState(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   const current = STEPS[step];
@@ -76,6 +77,36 @@ export function BookingWizard() {
 
   const wa = whatsappHref(message, "#");
   const hasNumber = wa.startsWith("http");
+
+  if (done) {
+    return (
+      <div className={styles.wizard}>
+        <div className={styles.thanks} role="status">
+          <svg viewBox="0 0 64 64" width="72" height="72" aria-hidden="true" className={styles.check}>
+            <circle cx="32" cy="32" r="29" fill="none" stroke="currentColor" strokeWidth="3" />
+            <path d="M19 33l9 9 17-19" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <h2 className={styles.thanksTitle}>{t("thanksTitle")}</h2>
+          <p className={styles.thanksText}>{t("thanksText")}</p>
+          <button
+            type="button"
+            className={styles.back}
+            onClick={() => {
+              setDone(false);
+              setStep(0);
+              setService(null);
+              setDay("");
+              setTime(null);
+              setName("");
+              setNote("");
+            }}
+          >
+            {t("again")}
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.wizard}>
@@ -228,6 +259,9 @@ export function BookingWizard() {
             <a
               className={styles.next}
               href={wa}
+              onClick={() => {
+                if (hasNumber) setTimeout(() => setDone(true), 400);
+              }}
               {...(hasNumber ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             >
               {t("send")}

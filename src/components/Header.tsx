@@ -3,12 +3,13 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { siteConfig } from "@/config/site";
+import { siteConfig, whatsappHref } from "@/config/site";
 import { BookLink } from "./ui/BookLink";
 import { LangSwitcher } from "./LangSwitcher";
 import styles from "./Header.module.css";
 
-type Ink = "paper" | "field";
+type Ink = "paper" | "field" | "plum";
+
 
 const links = [
   { href: "/#services", key: "services" },
@@ -20,8 +21,11 @@ const links = [
 // Colour by chapter: the header takes the ink of the chapter under it.
 export function Header() {
   const t = useTranslations("nav");
+  const f = useTranslations("footer");
+  const wa = whatsappHref();
   const [ink, setInk] = useState<Ink>("paper");
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
     let frame = 0;
@@ -33,19 +37,34 @@ export function Header() {
       chapters.forEach((el) => {
         const r = el.getBoundingClientRect();
         if (r.top <= y && r.bottom > y) {
-          next = el.dataset.chapter === "field" ? "field" : "paper";
+          next =
+            el.dataset.chapter === "field"
+              ? "field"
+              : el.dataset.chapter === "plum"
+                ? "plum"
+                : "paper";
         }
       });
       setInk(next);
+    };
+    let lastY = window.scrollY;
+    const onDir = () => {
+      const y = window.scrollY;
+      if (Math.abs(y - lastY) > 6) {
+        setHidden(y > lastY && y > 160);
+        lastY = y;
+      }
     };
     const onScroll = () => {
       if (!frame) frame = requestAnimationFrame(update);
     };
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("scroll", onDir, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
       window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("scroll", onDir);
       window.removeEventListener("resize", onScroll);
       if (frame) cancelAnimationFrame(frame);
     };
@@ -66,13 +85,17 @@ export function Header() {
 
   return (
     <>
-      <header className={styles.header} data-ink={open ? "field" : ink}>
+      <header
+        className={styles.header}
+        data-ink={open ? "plum" : ink}
+        data-hidden={hidden && !open}
+      >
         <Link href="/" className={styles.mark} onClick={() => setOpen(false)}>
           {siteConfig.name}
         </Link>
         <nav className={styles.nav} aria-label="Main">
           {links.map((l) => (
-            <Link key={l.key} href={l.href}>
+            <Link key={l.key} href={l.href} data-scramble>
               {t(l.key)}
             </Link>
           ))}
@@ -106,6 +129,7 @@ export function Header() {
                 <Link
                   href={l.href}
                   className={styles.menuLink}
+                  data-scramble
                   tabIndex={open ? 0 : -1}
                   onClick={() => setOpen(false)}
                 >
@@ -113,18 +137,31 @@ export function Header() {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link
-                href="/booking"
-                className={`${styles.menuLink} ${styles.menuBook}`}
-                tabIndex={open ? 0 : -1}
-                onClick={() => setOpen(false)}
-              >
-                {t("book")}
-              </Link>
-            </li>
           </ul>
         </nav>
+        <Link
+          href="/booking"
+          className={styles.menuCta}
+          tabIndex={open ? 0 : -1}
+          onClick={() => setOpen(false)}
+        >
+          {t("book")}
+        </Link>
+        <div className={styles.menuFoot}>
+          <a
+            href={wa}
+            tabIndex={open ? 0 : -1}
+            {...(wa.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+          >
+            WhatsApp
+          </a>
+          <Link href="/impressum" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
+            {f("imprint")}
+          </Link>
+          <Link href="/datenschutz" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)}>
+            {f("privacy")}
+          </Link>
+        </div>
       </div>
     </>
   );

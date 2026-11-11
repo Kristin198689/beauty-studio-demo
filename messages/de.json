@@ -177,6 +177,9 @@
     },
     "message": "Hallo! Ich möchte gern einen Termin buchen.",
     "privacy": "Ihre Angaben werden nur verwendet, um eine WhatsApp-Nachricht an das Studio zu öffnen. Auf dieser Seite wird nichts gespeichert.",
-    "noNumber": "TODO: Die WhatsApp-Nummer des Studios ist noch nicht hinterlegt."
+    "noNumber": "TODO: Die WhatsApp-Nummer des Studios ist noch nicht hinterlegt.",
+    "thanksTitle": "Danke",
+    "thanksText": "Ihre Nachricht liegt in WhatsApp bereit. Die genaue Uhrzeit bestätigen wir persönlich.",
+    "again": "Weiteren Termin buchen"
   }
 }

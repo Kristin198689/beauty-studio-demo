@@ -134,6 +134,50 @@ export function Motion({ name }: { name: string }) {
       });
     }
 
+    // Text scramble on hover: [data-scramble] letters shuffle and settle left to right
+    if (window.matchMedia(FINE).matches) {
+      const LATIN_UP = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      const LATIN_LO = "abcdefghijklmnopqrstuvwxyz";
+      const CYR_UP = "АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЮЯ";
+      const CYR_LO = "абвгдежзиклмнопрстуфхцчшщюя";
+      const running = new WeakMap<HTMLElement, gsap.core.Tween>();
+      const onEnter = (e: PointerEvent) => {
+        const el = (e.target as Element | null)?.closest<HTMLElement>("[data-scramble]");
+        if (!el || (e.relatedTarget instanceof Node && el.contains(e.relatedTarget))) return;
+        const original = el.dataset.scrambleText ?? el.textContent ?? "";
+        el.dataset.scrambleText = original;
+        running.get(el)?.kill();
+        const cyr = /[\u0400-\u04FF]/.test(original);
+        const upper = original === original.toUpperCase();
+        const pool = cyr ? (upper ? CYR_UP : CYR_LO) : upper ? LATIN_UP : LATIN_LO;
+        el.style.display = el.style.display || "inline-block";
+        el.style.minWidth = `${el.offsetWidth}px`;
+        const state = { p: 0 };
+        running.set(
+          el,
+          gsap.to(state, {
+            p: 1,
+            duration: 0.55,
+            ease: "none",
+            onUpdate: () => {
+              const settled = Math.floor(state.p * original.length);
+              el.textContent = Array.from(original)
+                .map((ch, i) =>
+                  ch === " " || i < settled ? ch : pool[Math.floor(Math.random() * pool.length)],
+                )
+                .join("");
+            },
+            onComplete: () => {
+              el.textContent = original;
+              el.style.minWidth = "";
+            },
+          }),
+        );
+      };
+      document.addEventListener("pointerover", onEnter, { passive: true });
+      cleanups.push(() => document.removeEventListener("pointerover", onEnter));
+    }
+
     // Page transitions (curtain)
     const onClick = (e: MouseEvent) => {
       if (e.defaultPrevented || e.button !== 0) return;

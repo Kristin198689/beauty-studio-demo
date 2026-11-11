@@ -177,6 +177,9 @@
     },
     "message": "Hello! I would like to book an appointment.",
     "privacy": "Your details are only used to open a WhatsApp message to the studio. Nothing is stored on this site.",
-    "noNumber": "TODO: the studio WhatsApp number is not set yet."
+    "noNumber": "TODO: the studio WhatsApp number is not set yet.",
+    "thanksTitle": "Thank you",
+    "thanksText": "Your message is ready in WhatsApp. We confirm the exact time personally.",
+    "again": "Book another appointment"
   }
 }

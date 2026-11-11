@@ -88,14 +88,12 @@
   width: 6.5rem;
   height: 6.5rem;
   margin: -3.25rem 0 0 -3.25rem;
-  background: var(--color-plum-bright);
-  mix-blend-mode: normal;
 }
 
 .label {
   font-size: var(--fs-small);
   font-weight: 500;
-  color: #fff;
+  color: #000;
 }
 
 @media (prefers-reduced-motion: reduce) {

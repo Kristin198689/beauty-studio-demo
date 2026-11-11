@@ -1,18 +1,28 @@
 /*
   Design tokens. Single source of truth.
   Layer 1: primitives (raw values). Layer 2: semantic (used by components).
-  Palette: "Black and paper", harsh fashion-campaign contrast. Change the primitives to restyle the whole site.
+  Palette: "Black and near-white", no colour accent for now.
+  --p-plum-* are the reserved accent slots (900: accent field, 500: accent detail).
+  Previous palettes to switch back to (paper / surface / plum / plum-bright):
+    pale-lilac: #fafaf7 / #eeeee8 / #e8d8ff / #e8d8ff (needs ink text on accent)
+    hot-magenta: #fafaf7 / #eeeee8 / #d6006f / #d6006f (light text on accent)
+    bright-cherry: #fafaf7 / #eeeee8 / #c2005c / #c2005c
+    lipstick:  #fafaf7 / #eeeee8 / #e10b3c / #e10b3c
+    milk-plum: #fff3e6 / #f1e4d6 / #381932 / #7b3a6c
+    cherry:    #f3f3e7 / #e6e6d9 / #890149 / #a80a5b
+    aubergine: #efede8 / #e2dfd8 / #2a1034 / #84389a
+  Harsh fashion-campaign contrast. Change the primitives to restyle the whole site.
   Fonts live in src/config/fonts.ts.
 */
 
 :root {
   /* primitives: palette */
-  --p-paper: #efede8;
-  --p-surface: #e2dfd8;
+  --p-paper: #fafaf7;
+  --p-surface: #eeeee8;
   --p-ink: #0a0a0a;
   --p-ink-soft: #66635c;
-  --p-plum-900: #2a1034;
-  --p-plum-500: #84389a;
+  --p-plum-900: #0a0a0a;
+  --p-plum-500: #fafaf7;
 
   /* primitives: type */
   --display-transform: uppercase;
@@ -68,7 +78,10 @@
   --color-on-field: var(--p-paper);
   --color-plum: var(--p-plum-900);
   --color-plum-bright: var(--p-plum-500);
+  /* Text on the accent. Pale accents need ink, saturated accents need paper. */
   --color-on-plum: var(--p-paper);
+  --color-on-plum-bright: var(--p-ink);
+  --color-danger: #c0182f;
 }
 
 @media (prefers-reduced-motion: reduce) {

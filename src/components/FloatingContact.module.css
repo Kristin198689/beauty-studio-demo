@@ -8,8 +8,9 @@
   width: 3.25rem;
   height: 3.25rem;
   border-radius: 50%;
-  background: var(--color-plum-bright);
-  color: #fff;
+  background: #fff;
+  color: #000;
+  mix-blend-mode: difference;
   opacity: 0;
   transform: scale(0.6);
   pointer-events: none;

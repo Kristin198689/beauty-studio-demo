@@ -1,7 +1,6 @@
 .header {
-  --header-ink: var(--color-text);
-  --btn-bg: var(--color-accent);
-  --btn-ink: var(--color-on-accent);
+  --btn-bg: #fff;
+  --btn-ink: #000;
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 30;
@@ -11,14 +10,27 @@
   gap: var(--space-6);
   height: var(--header-h);
   padding-inline: var(--gutter);
-  color: var(--header-ink);
-  transition: color 300ms var(--ease-out);
+  color: #fff;
+  mix-blend-mode: difference;
+  transition: transform 500ms var(--ease-out);
 }
 
 .header[data-ink="field"] {
   --header-ink: var(--color-on-field);
   --btn-bg: var(--color-on-field);
   --btn-ink: var(--color-field);
+}
+
+.header[data-ink="plum"] {
+  --header-ink: var(--color-on-plum);
+  --btn-bg: var(--color-on-plum);
+  --btn-ink: var(--color-plum);
+}
+
+/* Always white; the difference blend inverts it over light and dark sections.
+   The header slides away when scrolling down and returns when scrolling up. */
+.header[data-hidden="true"] {
+  transform: translateY(-100%);
 }
 
 .mark {
@@ -81,8 +93,9 @@
   inset: 0;
   z-index: 25;
   display: flex;
-  align-items: flex-end;
-  padding: calc(var(--header-h) + var(--space-8)) var(--gutter) var(--space-12);
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: calc(var(--header-h) + var(--space-6)) var(--gutter) calc(var(--space-8) + env(safe-area-inset-bottom));
   background: var(--color-plum);
   color: var(--color-on-plum);
   clip-path: inset(0 0 100% 0);
@@ -98,9 +111,27 @@
   transition: clip-path 700ms var(--ease-in-out);
 }
 
+.menu nav {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.menuCta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.5rem;
+  background: var(--color-on-plum);
+  color: var(--color-plum);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  text-decoration: none;
+}
+
 .menuList {
   display: grid;
-  gap: var(--space-2);
+  gap: 0;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -108,12 +139,24 @@
 
 .menuLink {
   display: block;
-  font-size: clamp(2.75rem, 15vw, 6rem);
+  padding: var(--space-3) 0;
+  font-size: clamp(2rem, 10vw, 4rem);
   font-weight: 800;
-  line-height: 0.95;
+  line-height: 1;
   letter-spacing: var(--tracking-display);
   text-decoration: none;
   text-transform: uppercase;
+}
+
+.menuFoot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+  font-size: var(--fs-body);
+}
+
+.menuFoot a {
+  text-decoration: none;
 }
 
 .menuBook {

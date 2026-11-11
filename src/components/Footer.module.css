@@ -95,13 +95,13 @@
 .wordmark {
   margin: 0;
   padding-inline: var(--gutter);
-  font-size: clamp(7rem, 30vw, 30rem);
+  font-size: clamp(4.5rem, 26.5vw, 34rem);
   font-weight: 800;
-  line-height: 0.8;
+  line-height: 0.95;
   letter-spacing: var(--tracking-display);
   text-transform: uppercase;
   white-space: nowrap;
-  transform: translateY(26%);
+  padding-bottom: var(--space-6);
 }
 
 @media (min-width: 56rem) {

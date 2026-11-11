@@ -28,16 +28,16 @@ export function Footer() {
           <h3 className={styles.h}>{t("navTitle")}</h3>
           <ul className={styles.list}>
             <li>
-              <Link href="/#services">{nav("services")}</Link>
+              <Link href="/#services" data-scramble>{nav("services")}</Link>
             </li>
             <li>
-              <Link href="/#gallery">{nav("gallery")}</Link>
+              <Link href="/#gallery" data-scramble>{nav("gallery")}</Link>
             </li>
             <li>
-              <Link href="/#about">{nav("about")}</Link>
+              <Link href="/#about" data-scramble>{nav("about")}</Link>
             </li>
             <li>
-              <Link href="/booking">{nav("book")}</Link>
+              <Link href="/booking" data-scramble>{nav("book")}</Link>
             </li>
           </ul>
         </nav>
@@ -76,10 +76,10 @@ export function Footer() {
         <div className={styles.legal}>
           <ul className={styles.list}>
             <li>
-              <Link href="/impressum">{t("imprint")}</Link>
+              <Link href="/impressum" data-scramble>{t("imprint")}</Link>
             </li>
             <li>
-              <Link href="/datenschutz">{t("privacy")}</Link>
+              <Link href="/datenschutz" data-scramble>{t("privacy")}</Link>
             </li>
           </ul>
           <BackToTop label={t("top")} />
