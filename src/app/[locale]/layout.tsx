@@ -11,6 +11,8 @@ import { Header } from "@/components/Header";
 import { Companion } from "@/components/motion/Companion";
 import { Motion } from "@/components/motion/Motion";
 import { FloatingContact } from "@/components/FloatingContact";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { SideNav } from "@/components/SideNav";
 import { siteConfig } from "@/config/site";
 import "../globals.css";
 
@@ -51,6 +53,8 @@ export default async function LocaleLayout({
           <Motion name={siteConfig.name} />
           <Companion />
           <Header />
+          <ScrollProgress />
+          <SideNav />
           {children}
           <Footer />
           <FloatingContact />

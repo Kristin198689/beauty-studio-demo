@@ -12,7 +12,29 @@
     "language": "Sprache",
     "menu": "Menü",
     "close": "Schließen",
-    "chat": "Per WhatsApp schreiben"
+    "chat": "Per WhatsApp schreiben",
+    "prices": "Preise",
+    "faq": "Fragen",
+    "sections": {
+      "title": "Bereiche",
+      "home": "Start",
+      "services": "Leistungen",
+      "inside": "Eintreten",
+      "work": "Arbeiten",
+      "about": "Studio",
+      "closer": "Nah dran",
+      "prices": "Preise",
+      "cards": "Karten",
+      "quiz": "Quiz",
+      "lookbook": "Lookbook",
+      "faq": "Fragen",
+      "world": "Welt",
+      "move": "Bewegung",
+      "light": "Licht",
+      "floor": "Boden",
+      "doors": "Türen",
+      "contact": "Kontakt"
+    }
   },
   "hero": {
     "line1": "Wimpern, Nägel",

@@ -46,7 +46,7 @@ export function Pupil() {
   }, []);
 
   return (
-    <section ref={ref} className={styles.section} data-chapter="field" aria-label={t("pupil.title1")}>
+    <section id="closer" ref={ref} className={styles.section} data-chapter="field" aria-label={t("pupil.title1")}>
       <div className={styles.pin} data-pin>
         <p className={styles.reveal} data-reveal>
           {t("pupil.reveal")}

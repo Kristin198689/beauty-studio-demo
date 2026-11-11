@@ -10,7 +10,7 @@ export function Hero() {
   const g = useTranslations("gallery.words");
 
   return (
-    <section className={styles.hero} data-chapter="field">
+    <section id="top" className={styles.hero} data-chapter="field">
       <div className={styles.bg} aria-hidden="true">
         <div className={styles.bgDesktop}>
           <Photo slot="heroBgDesktop" sizes="100vw" priority shine={false} />

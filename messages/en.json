@@ -12,7 +12,29 @@
     "language": "Language",
     "menu": "Menu",
     "close": "Close",
-    "chat": "Write on WhatsApp"
+    "chat": "Write on WhatsApp",
+    "prices": "Prices",
+    "faq": "Questions",
+    "sections": {
+      "title": "Sections",
+      "home": "Home",
+      "services": "Services",
+      "inside": "Inside",
+      "work": "Work",
+      "about": "Studio",
+      "closer": "Closer",
+      "prices": "Prices",
+      "cards": "Cards",
+      "quiz": "Quiz",
+      "lookbook": "Lookbook",
+      "faq": "Questions",
+      "world": "World",
+      "move": "Move",
+      "light": "Light",
+      "floor": "Floor",
+      "doors": "Doors",
+      "contact": "Contact"
+    }
   },
   "hero": {
     "line1": "Lashes, nails",

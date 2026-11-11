@@ -57,7 +57,7 @@ export default function HomePage({ params }: PageProps<"/[locale]">) {
       <SpotlightSection />
       <StatementC />
       <Floor />
-      <MarqueeStrip />
+      <MarqueeStrip tone="paper" />
       <Doors />
       <Contact />
     </main>

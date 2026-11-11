@@ -26,3 +26,8 @@
 .set > span {
   padding-right: 0.35em;
 }
+
+.paper {
+  background: var(--color-bg);
+  color: var(--color-text);
+}

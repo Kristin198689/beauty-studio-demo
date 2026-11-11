@@ -59,7 +59,7 @@ export function Carousel() {
   }, [panels.length]);
 
   return (
-    <section ref={ref} className={styles.section} data-chapter="field" aria-label={t("carousel.title1")}>
+    <section id="world" ref={ref} className={styles.section} data-chapter="field" aria-label={t("carousel.title1")}>
       <div className={styles.pin} data-pin>
         <h2 className={styles.title} data-split>
           <span>{t("carousel.title1")}</span>

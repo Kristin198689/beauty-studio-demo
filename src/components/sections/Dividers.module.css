@@ -55,8 +55,8 @@
   place-items: center;
   min-height: 70svh;
   padding: var(--section-y) var(--gutter);
-  background: var(--color-field);
-  color: var(--color-on-field);
+  background: var(--color-surface);
+  color: var(--color-text);
   text-align: center;
 }
 

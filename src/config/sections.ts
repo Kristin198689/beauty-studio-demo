@@ -1,0 +1,20 @@
+// Anchors of the home page in reading order. `key` is a message key in nav.sections.
+export const sections = [
+  { id: "top", key: "home" },
+  { id: "services", key: "services" },
+  { id: "inside", key: "inside" },
+  { id: "gallery", key: "work" },
+  { id: "about", key: "about" },
+  { id: "closer", key: "closer" },
+  { id: "pricing", key: "prices" },
+  { id: "cards", key: "cards" },
+  { id: "quiz", key: "quiz" },
+  { id: "lookbook", key: "lookbook" },
+  { id: "faq", key: "faq" },
+  { id: "world", key: "world" },
+  { id: "move", key: "move" },
+  { id: "light", key: "light" },
+  { id: "floor", key: "floor" },
+  { id: "doors", key: "doors" },
+  { id: "contact", key: "contact" },
+] as const;

@@ -39,7 +39,7 @@ export function Principles() {
 export function StatementB() {
   const t = useTranslations("dividers");
   return (
-    <section className={styles.poster} data-chapter="field">
+    <section className={styles.poster} data-chapter="paper">
       <p className={styles.posterText} data-split>
         {t.rich("b", em)}
       </p>

@@ -5,7 +5,13 @@ import gsap from "gsap";
 import styles from "./Marquee.module.css";
 
 // Endless strip. Speed and direction react to scrolling.
-export function Marquee({ children }: { children: React.ReactNode }) {
+export function Marquee({
+  children,
+  tone = "field",
+}: {
+  children: React.ReactNode;
+  tone?: "field" | "paper";
+}) {
   const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -41,7 +47,7 @@ export function Marquee({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <div className={styles.marquee} aria-hidden="true">
+    <div className={`${styles.marquee} ${tone === "paper" ? styles.paper : ""}`} aria-hidden="true">
       <div ref={trackRef} className={styles.track}>
         <div className={styles.set}>{children}</div>
         <div className={styles.set}>{children}</div>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { sections } from "@/config/sections";
 import { siteConfig, whatsappHref } from "@/config/site";
 import { BookLink } from "./ui/BookLink";
 import { LangSwitcher } from "./LangSwitcher";
@@ -15,6 +16,8 @@ const links = [
   { href: "/#services", key: "services" },
   { href: "/#gallery", key: "gallery" },
   { href: "/#about", key: "about" },
+  { href: "/#pricing", key: "prices" },
+  { href: "/#faq", key: "faq" },
   { href: "/#contact", key: "contact" },
 ] as const;
 
@@ -22,6 +25,7 @@ const links = [
 export function Header() {
   const t = useTranslations("nav");
   const f = useTranslations("footer");
+  const sec = useTranslations("nav.sections");
   const wa = whatsappHref();
   const [ink, setInk] = useState<Ink>("paper");
   const [open, setOpen] = useState(false);
@@ -139,6 +143,25 @@ export function Header() {
             ))}
           </ul>
         </nav>
+        <div className={styles.menuSections}>
+          <p className={styles.menuTitle}>{sec("title")}</p>
+          <ul className={styles.menuGrid}>
+            {sections
+              .slice(1)
+              .filter((s) => !links.some((l) => l.href === `/#${s.id}`))
+              .map((s) => (
+              <li key={s.id}>
+                <Link
+                  href={`/#${s.id}`}
+                  tabIndex={open ? 0 : -1}
+                  onClick={() => setOpen(false)}
+                >
+                  {sec(s.key)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
         <Link
           href="/booking"
           className={styles.menuCta}

@@ -12,7 +12,29 @@
     "language": "Мова",
     "menu": "Меню",
     "close": "Закрити",
-    "chat": "Написати у WhatsApp"
+    "chat": "Написати у WhatsApp",
+    "prices": "Ціни",
+    "faq": "Питання",
+    "sections": {
+      "title": "Розділи",
+      "home": "Початок",
+      "services": "Послуги",
+      "inside": "Всередину",
+      "work": "Роботи",
+      "about": "Студія",
+      "closer": "Ближче",
+      "prices": "Ціни",
+      "cards": "Картки",
+      "quiz": "Квіз",
+      "lookbook": "Лукбук",
+      "faq": "Питання",
+      "world": "Світ",
+      "move": "Рух",
+      "light": "Світло",
+      "floor": "Підлога",
+      "doors": "Двері",
+      "contact": "Контакти"
+    }
   },
   "hero": {
     "line1": "Вії, нігті",

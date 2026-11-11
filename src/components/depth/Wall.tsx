@@ -61,7 +61,7 @@ export function Wall() {
 
   let k = 0;
   return (
-    <section ref={ref} className={styles.section} data-chapter="field" aria-label={t("wall.title1")}>
+    <section id="move" ref={ref} className={styles.section} data-chapter="field" aria-label={t("wall.title1")}>
       <h2 className={styles.title} data-split>
         <span>{t("wall.title1")}</span>
         <span>{t.rich("wall.title2", { em: (c) => <em>{c}</em> })}</span>

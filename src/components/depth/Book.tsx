@@ -54,7 +54,7 @@ export function Book() {
   }, [leaves]);
 
   return (
-    <section ref={ref} className={styles.section} data-chapter="field" aria-label={t("book.title1")}>
+    <section id="lookbook" ref={ref} className={styles.section} data-chapter="field" aria-label={t("book.title1")}>
       <div className={styles.pin} data-pin>
         <h2 className={styles.title} data-split>
           <span>{t("book.title1")}</span>

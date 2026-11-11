@@ -42,7 +42,7 @@ export function Floor() {
   }, []);
 
   return (
-    <section ref={ref} className={styles.section} data-chapter="field" aria-label={t("floor.title1")}>
+    <section id="floor" ref={ref} className={styles.section} data-chapter="field" aria-label={t("floor.title1")}>
       <div className={styles.pin} data-pin>
         <h2 className={styles.title} data-split>
           <span>{t("floor.title1")}</span>

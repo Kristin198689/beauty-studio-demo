@@ -38,6 +38,12 @@ export function Footer() {
               <Link href="/#about" data-scramble>{nav("about")}</Link>
             </li>
             <li>
+              <Link href="/#pricing" data-scramble>{nav("prices")}</Link>
+            </li>
+            <li>
+              <Link href="/#faq" data-scramble>{nav("faq")}</Link>
+            </li>
+            <li>
               <Link href="/booking" data-scramble>{nav("book")}</Link>
             </li>
           </ul>

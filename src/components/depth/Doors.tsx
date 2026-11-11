@@ -39,7 +39,7 @@ export function Doors() {
   }, []);
 
   return (
-    <section ref={ref} className={styles.section} data-chapter="field" aria-label={`${t("doors.left")} ${String(t.raw("doors.right")).replace(/<\/?em>/g, "")}`}>
+    <section id="doors" ref={ref} className={styles.section} data-chapter="field" aria-label={`${t("doors.left")} ${String(t.raw("doors.right")).replace(/<\/?em>/g, "")}`}>
       <div className={styles.pin} data-pin>
         <div className={styles.back}>
           <figure className={styles.fig} data-fig>

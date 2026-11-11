@@ -1,13 +1,13 @@
 import { useTranslations } from "next-intl";
 import { Marquee } from "../motion/Marquee";
 
-export function MarqueeStrip() {
+export function MarqueeStrip({ tone = "field" }: { tone?: "field" | "paper" }) {
   const t = useTranslations("marquee");
   const em = { em: (c: React.ReactNode) => <em>{c}</em> };
 
   return (
-    <section data-chapter="field" aria-hidden="true">
-      <Marquee>
+    <section data-chapter={tone === "paper" ? "paper" : "field"} aria-hidden="true">
+      <Marquee tone={tone}>
         <span>{t.rich("a", em)}</span>
         <span>—</span>
         <span>{t.rich("b", em)}</span>

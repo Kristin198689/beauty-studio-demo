@@ -158,7 +158,8 @@ export function Motion({ name }: { name: string }) {
       cleanups.push(() => document.removeEventListener("pointerdown", onTap));
     }
 
-    // Magnifier lens over [data-lens] photos (desktop)
+    // Magnifier lens over [data-lens] photos (desktop). It is recomputed from the pointer position on
+    // every move AND every scroll, so it can never stay behind when the page moves under a still cursor.
     if (window.matchMedia(FINE).matches) {
       const R = 88;
       const Z = 2.4;
@@ -166,27 +167,70 @@ export function Motion({ name }: { name: string }) {
       lens.className = styles.lens;
       lens.setAttribute("aria-hidden", "true");
       document.body.appendChild(lens);
-      const onLens = (e: PointerEvent) => {
-        const el = (e.target as Element | null)?.closest<HTMLElement>("[data-lens]");
-        const img = el?.querySelector("img");
-        if (!el || !img || !img.complete || !img.naturalWidth) {
-          lens.style.opacity = "0";
-          return;
-        }
+      let px = -1;
+      let py = -1;
+      let frame = 0;
+      const hide = () => {
+        lens.style.opacity = "0";
+      };
+      const update = () => {
+        frame = 0;
+        if (px < 0 || py < 0) return hide();
+        // find the lens photo whose picture is under the pointer right now
+        const top = document.elementFromPoint(px, py);
+        let found: HTMLImageElement | null = null;
+        document.querySelectorAll<HTMLImageElement>("[data-lens] img").forEach((im) => {
+          if (found || !im.complete || !im.naturalWidth) return;
+          const b = im.getBoundingClientRect();
+          if (px < b.left || px > b.right || py < b.top || py > b.bottom) return;
+          const box = im.closest<HTMLElement>("[data-lens]");
+          // something unrelated (header, menu, another layer) must not be covering the photo
+          if (top && box && !(box.contains(top) || top.contains(box))) return;
+          found = im;
+        });
+        const img = found as HTMLImageElement | null;
+        if (!img) return hide();
         const r = img.getBoundingClientRect();
         const s = Math.max(r.width / img.naturalWidth, r.height / img.naturalHeight);
         const offX = (r.width - img.naturalWidth * s) / 2;
         const offY = (r.height - img.naturalHeight * s) / 2;
         lens.style.opacity = "1";
-        lens.style.transform = `translate(${e.clientX - R}px, ${e.clientY - R}px)`;
+        lens.style.transform = `translate(${px - R}px, ${py - R}px)`;
         lens.style.backgroundImage = `url("${img.currentSrc}")`;
         lens.style.backgroundSize = `${img.naturalWidth * s * Z}px ${img.naturalHeight * s * Z}px`;
-        lens.style.backgroundPosition = `${R - (e.clientX - r.left - offX) * Z}px ${R - (e.clientY - r.top - offY) * Z}px`;
+        lens.style.backgroundPosition = `${R - (px - r.left - offX) * Z}px ${R - (py - r.top - offY) * Z}px`;
       };
-      window.addEventListener("pointermove", onLens, { passive: true });
-      document.addEventListener("pointerleave", () => (lens.style.opacity = "0"));
+      const schedule = () => {
+        if (!frame) frame = requestAnimationFrame(update);
+      };
+      const onScroll = () => {
+        hide();
+        schedule();
+      };
+      const onMove = (e: PointerEvent) => {
+        px = e.clientX;
+        py = e.clientY;
+        schedule();
+      };
+      const onLeave = () => {
+        px = -1;
+        py = -1;
+        hide();
+      };
+      window.addEventListener("pointermove", onMove, { passive: true });
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("wheel", onScroll, { passive: true });
+      window.addEventListener("blur", onLeave);
+      document.documentElement.addEventListener("mouseleave", onLeave);
+      document.addEventListener("visibilitychange", onLeave);
       cleanups.push(() => {
-        window.removeEventListener("pointermove", onLens);
+        window.removeEventListener("pointermove", onMove);
+        window.removeEventListener("scroll", onScroll);
+        window.removeEventListener("wheel", onScroll);
+        window.removeEventListener("blur", onLeave);
+        document.documentElement.removeEventListener("mouseleave", onLeave);
+        document.removeEventListener("visibilitychange", onLeave);
+        if (frame) cancelAnimationFrame(frame);
         lens.remove();
       });
     }
