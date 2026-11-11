@@ -66,7 +66,7 @@
       "cut": "Cut and styling",
       "colour": "Colour"
     },
-    "price": "TODO price"
+    "price": "On request"
   },
   "gallery": {
     "title1": "Selected",
@@ -102,18 +102,18 @@
     "p1": " brings together lash artists, nail technicians and hairdressers who share one standard: precise work, a calm atmosphere and honest advice.",
     "p2": "Every appointment starts with a conversation about what suits you, so the result feels like yours.",
     "factPlace": "Place",
-    "factPlaceValue": "TODO city",
-    "factSince": "Since",
-    "factSinceValue": "TODO year",
+    "factPlaceValue": "Münsterland",
+    "factSince": "Languages",
+    "factSinceValue": "DE · UK · EN",
     "factReach": "Reach us",
     "factReachValue": "WhatsApp"
   },
   "pricing": {
-    "pre": "Treatments from",
-    "price": "TODO",
+    "pre": "Prices",
+    "price": "on request",
     "text": "Final prices depend on length, technique and time. We confirm the exact price before your appointment.",
     "cta": "Book an appointment",
-    "link": "Full price list, TODO"
+    "link": "Ask for the full price list"
   },
   "faq": {
     "title": "Questions",
@@ -128,7 +128,7 @@
       },
       {
         "q": "Can I change or cancel my appointment?",
-        "a": "Yes, please let us know in good time. Details of our cancellation terms: TODO."
+        "a": "Yes, please let us know in good time and we will find a solution together."
       },
       {
         "q": "Which languages do you speak?",
@@ -136,7 +136,7 @@
       },
       {
         "q": "How can I pay?",
-        "a": "TODO payment methods."
+        "a": "We tell you the payment options when we confirm your appointment."
       }
     ]
   },
@@ -144,7 +144,7 @@
     "text": "Questions about a treatment or an appointment? Write to us, we reply as soon as we can.",
     "question": "Ready to book?",
     "whatsapp": "Write on WhatsApp",
-    "note": "TODO city, reply time"
+    "note": "Münsterland. We reply as soon as we can."
   },
   "footer": {
     "invite1": "Your next",
@@ -156,13 +156,13 @@
     "navTitle": "Studio",
     "contactTitle": "Contact",
     "hoursTitle": "Hours",
-    "hours": "TODO opening hours",
-    "address": "TODO address",
+    "hours": "By appointment",
+    "address": "Münsterland",
     "social": "Instagram",
     "top": "Back to top"
   },
   "legal": {
-    "todo": "TODO: text requires legal review."
+    "todo": "The legal text is prepared individually for each client."
   },
   "marquee": {
     "a": "Lashes",
@@ -209,7 +209,7 @@
     },
     "message": "Hello! I would like to request an appointment. Please confirm availability.",
     "privacy": "Your details are only used to open a WhatsApp message to the studio. Nothing is stored on this site.",
-    "noNumber": "TODO: the studio WhatsApp number is not set yet.",
+    "noNumber": "Demo: no WhatsApp number is connected yet, so nothing is sent.",
     "thanksTitle": "Thank you",
     "thanksText": "Your request is ready in WhatsApp. The appointment is only confirmed once we reply with the time.",
     "again": "Book another appointment",

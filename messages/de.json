@@ -66,7 +66,7 @@
       "cut": "Schnitt und Styling",
       "colour": "Farbe"
     },
-    "price": "TODO Preis"
+    "price": "Auf Anfrage"
   },
   "gallery": {
     "title1": "Ausgewählte",
@@ -102,18 +102,18 @@
     "p1": " vereint Wimpernstylistinnen, Nageldesignerinnen und Friseure, die denselben Anspruch teilen: präzise Arbeit, ruhige Atmosphäre und ehrliche Beratung.",
     "p2": "Jeder Termin beginnt mit einem Gespräch darüber, was zu Ihnen passt, damit sich das Ergebnis nach Ihnen anfühlt.",
     "factPlace": "Ort",
-    "factPlaceValue": "TODO Stadt",
-    "factSince": "Seit",
-    "factSinceValue": "TODO Jahr",
+    "factPlaceValue": "Münsterland",
+    "factSince": "Sprachen",
+    "factSinceValue": "DE · UK · EN",
     "factReach": "Erreichbar",
     "factReachValue": "WhatsApp"
   },
   "pricing": {
-    "pre": "Behandlungen ab",
-    "price": "TODO",
+    "pre": "Preise",
+    "price": "auf Anfrage",
     "text": "Der Endpreis hängt von Länge, Technik und Zeitaufwand ab. Den genauen Preis nennen wir vor Ihrem Termin.",
     "cta": "Termin buchen",
-    "link": "Komplette Preisliste, TODO"
+    "link": "Preisliste auf Anfrage"
   },
   "faq": {
     "title": "Fragen",
@@ -128,7 +128,7 @@
       },
       {
         "q": "Kann ich meinen Termin ändern oder absagen?",
-        "a": "Ja, bitte geben Sie uns rechtzeitig Bescheid. Details zu den Stornobedingungen: TODO."
+        "a": "Ja, bitte geben Sie uns rechtzeitig Bescheid, dann finden wir gemeinsam eine Lösung."
       },
       {
         "q": "Welche Sprachen sprechen Sie?",
@@ -136,7 +136,7 @@
       },
       {
         "q": "Wie kann ich bezahlen?",
-        "a": "TODO Zahlungsarten."
+        "a": "Die Zahlungsmöglichkeiten nennen wir Ihnen bei der Terminbestätigung."
       }
     ]
   },
@@ -144,7 +144,7 @@
     "text": "Fragen zu einer Behandlung oder einem Termin? Schreiben Sie uns, wir antworten so schnell wir können.",
     "question": "Bereit für Ihren Termin?",
     "whatsapp": "Per WhatsApp schreiben",
-    "note": "TODO Stadt, Antwortzeit"
+    "note": "Münsterland. Wir antworten so schnell wir können."
   },
   "footer": {
     "invite1": "Ihr nächster",
@@ -156,13 +156,13 @@
     "navTitle": "Studio",
     "contactTitle": "Kontakt",
     "hoursTitle": "Öffnungszeiten",
-    "hours": "TODO Öffnungszeiten",
-    "address": "TODO Adresse",
+    "hours": "Nach Vereinbarung",
+    "address": "Münsterland",
     "social": "Instagram",
     "top": "Nach oben"
   },
   "legal": {
-    "todo": "TODO: Text benötigt rechtliche Prüfung."
+    "todo": "Der Rechtstext wird für jedes Projekt individuell erstellt."
   },
   "marquee": {
     "a": "Wimpern",
@@ -209,7 +209,7 @@
     },
     "message": "Hallo! Ich möchte einen Termin anfragen. Bitte bestätigen Sie die Verfügbarkeit.",
     "privacy": "Ihre Angaben werden nur verwendet, um eine WhatsApp-Nachricht an das Studio zu öffnen. Auf dieser Seite wird nichts gespeichert.",
-    "noNumber": "TODO: Die WhatsApp-Nummer des Studios ist noch nicht hinterlegt.",
+    "noNumber": "Demo: Es ist noch keine WhatsApp-Nummer verbunden, deshalb wird nichts gesendet.",
     "thanksTitle": "Danke",
     "thanksText": "Ihre Anfrage liegt in WhatsApp bereit. Verbindlich ist der Termin erst, wenn wir ihn mit Uhrzeit bestätigen.",
     "again": "Weiteren Termin buchen",

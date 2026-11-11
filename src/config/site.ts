@@ -10,7 +10,7 @@ export const siteConfig = {
   booking: {
     // 0 = Sunday ... 6 = Saturday. TODO real days off, e.g. [0]
     closedWeekdays: [] as number[],
-    // Dates that are taken or closed, "YYYY-MM-DD". TODO holidays, holidays, vacations
+    // Dates that are taken or closed, "YYYY-MM-DD". TODO holidays and vacations
     blockedDates: [] as string[],
     // Earliest day that can be requested, counted from today. 1 = from tomorrow
     minLeadDays: 1,
