@@ -4,6 +4,13 @@ export const siteConfig = {
   // Public site URL. Set NEXT_PUBLIC_SITE_URL in the hosting environment; this is a safe local fallback.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3100",
   // International format, digits only, e.g. "491701234567". TODO real number.
+  // Demo mode: shows "demo project" notes and demo legal pages. Set to false for a real client.
+  demo: true,
+  // Studio that built the site, credited at the very bottom of the footer
+  developer: "Volodina Web Studio",
+  developerUrl: "https://volodina-webstudio.de",
+  // Impressum of the website that presents this demo (it names the provider)
+  portfolioImprintUrl: "https://volodina-webstudio.de/de/impressum",
   // Page transition: "blink" (eyelids close and open) or "curtain" (dark panel slides over)
   transition: "blink" as "blink" | "curtain",
   // Booking is a REQUEST that the studio confirms. Days listed here cannot be chosen.

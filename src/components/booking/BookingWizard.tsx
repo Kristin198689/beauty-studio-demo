@@ -155,6 +155,7 @@ export function BookingWizard() {
 
       <p className={styles.requestNote} role="note">
         {t("requestNote")}
+        {siteConfig.demo ? <strong className={styles.demoNote}> {t("demoNote")}</strong> : null}
       </p>
 
       <form

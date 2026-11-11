@@ -24,6 +24,9 @@ Node 20 или новее.
 | Фото | `src/config/images.ts` и `src/config/pool.ts`, файлы в `public/images` |
 | Тексты на трёх языках | `messages/de.json`, `messages/uk.json`, `messages/en.json` |
 | Якоря и меню разделов | `src/config/sections.ts` |
+| Подпись разработчика и ссылки на студию | `developer`, `developerUrl`, `portfolioImprintUrl` в `src/config/site.ts` |
+| Демо-режим (пометки «демо-проект», демо-тексты Impressum и Datenschutz) | `siteConfig.demo` в `src/config/site.ts`, для реального клиента поставить `false` |
+| Превью для соцсетей и иконки | `python3 scripts/brand-assets.py` (берёт название из конфига, фото из hero и тексты из `messages`) |
 | Переход между страницами (моргание или шторка) | `siteConfig.transition` в `src/config/site.ts` |
 
 Пока значения не заданы, на сайте стоят нейтральные заглушки: цены «по запросу», часы «по записи», регион Münsterland.
@@ -37,5 +40,6 @@ Node 20 или новее.
 - Заполнить `src/config/site.ts` и заменить заглушки в `messages/*.json`: цены, часы, адрес, регион, способы оплаты, условия отмены.
 - Заменить тексты Impressum и Datenschutz, их должен проверить юрист.
 - Задать `NEXT_PUBLIC_SITE_URL`.
-- Добавить картинку для превью в соцсетях (1200×630).
+- Пересобрать превью и иконки: `python3 scripts/brand-assets.py` (после смены названия или hero-фото).
+- Поставить `siteConfig.demo = false` и подставить настоящие Impressum и Datenschutz.
 - Заменить сгенерированные фото на настоящие, фото «до и после» только реальные.

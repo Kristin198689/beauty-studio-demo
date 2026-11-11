@@ -159,10 +159,57 @@
     "hours": "By appointment",
     "address": "Münsterland",
     "social": "Instagram",
-    "top": "Back to top"
+    "top": "Back to top",
+    "demo": "Demo project. Nothing is saved or sent.",
+    "madeBy": "Developed by"
   },
   "legal": {
-    "todo": "The legal text is prepared individually for each client."
+    "todo": "The legal text is prepared individually for each client.",
+    "imprint": [
+      {
+        "h": "Demonstration project",
+        "p": "This website is a demonstration project, a portfolio sample for beauty studios. It does not represent a real business."
+      },
+      {
+        "h": "Nothing is offered or sent",
+        "p": "No services are offered and no appointments are accepted. Nothing you enter on this site is saved or sent, and no button here leads to a real studio."
+      },
+      {
+        "h": "Placeholders",
+        "p": "The studio name, texts, prices, region and all photographs are placeholders. The photographs are AI-generated."
+      },
+      {
+        "h": "Provider information",
+        "p": "The provider of this demonstration is named in the Impressum of the portfolio website that presents it."
+      }
+    ],
+    "privacy": [
+      {
+        "h": "In short",
+        "p": "This demonstration collects no personal data."
+      },
+      {
+        "h": "Forms",
+        "p": "The booking form works only in your browser. Nothing is stored and nothing is transmitted. The last step would open a WhatsApp message, and in this demonstration no number is connected."
+      },
+      {
+        "h": "No cookies, no tracking",
+        "p": "There is no analytics, no advertising and no external service. Fonts and images are delivered from this server."
+      },
+      {
+        "h": "Server logs",
+        "p": "When you open the page, the hosting provider processes technical access data such as IP address, time and requested page to deliver and secure the site. This is based on a legitimate interest in safe operation (Art. 6(1)(f) GDPR)."
+      },
+      {
+        "h": "Browser storage",
+        "p": "A small note in the session storage remembers that the opening animation was shown. It contains no personal data and disappears when you close the tab."
+      },
+      {
+        "h": "Questions",
+        "p": "For questions about data protection, see the Impressum of the portfolio website."
+      }
+    ],
+    "portfolio": "Portfolio website"
   },
   "marquee": {
     "a": "Lashes",
@@ -218,7 +265,8 @@
     "preferred": "Preferred day",
     "backup": "Backup day (optional)",
     "unavailable": "Not available",
-    "reviewNote": "Not confirmed yet. We check availability and confirm the time in WhatsApp."
+    "reviewNote": "Not confirmed yet. We check availability and confirm the time in WhatsApp.",
+    "demoNote": "Demo project: this form saves and sends nothing."
   },
   "quiz": {
     "title1": "Find your",

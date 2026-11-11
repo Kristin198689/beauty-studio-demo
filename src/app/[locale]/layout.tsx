@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -20,6 +20,12 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+// Colour of the browser bar on phones (the first screen is black)
+export const viewport: Viewport = {
+  themeColor: "#0a0a0a",
+  colorScheme: "light dark",
+};
+
 export async function generateMetadata({
   params,
 }: LayoutProps<"/[locale]">): Promise<Metadata> {
@@ -27,6 +33,20 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "meta" });
   return {
     metadataBase: new URL(siteConfig.url),
+    applicationName: siteConfig.name,
+    manifest: "/manifest.webmanifest",
+    icons: {
+      icon: [
+        { url: "/icons/icon-16.png", sizes: "16x16", type: "image/png" },
+        { url: "/icons/icon-32.png", sizes: "32x32", type: "image/png" },
+        { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+        { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+      ],
+      apple: [{ url: "/icons/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+      shortcut: ["/favicon.ico"],
+    },
+    appleWebApp: { title: siteConfig.name, capable: true, statusBarStyle: "black-translucent" },
+    other: { "msapplication-TileColor": "#0a0a0a" },
     ...buildMetadata({ locale, title: t("title"), description: t("description") }),
   };
 }

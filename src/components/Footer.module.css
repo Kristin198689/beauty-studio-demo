@@ -122,3 +122,33 @@
     color: transparent;
   }
 }
+
+.demo {
+  font-weight: 500;
+}
+
+@media (max-width: 55.99rem) {
+  .credits {
+    flex-wrap: wrap;
+  }
+}
+
+/* Developer credit, the very last line of the page */
+.made {
+  padding: var(--space-4) var(--gutter) var(--space-6);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+}
+
+.made a,
+.made span {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.made a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}

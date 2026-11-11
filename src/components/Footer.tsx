@@ -98,6 +98,7 @@ export function Footer() {
           <span>
             © {new Date().getFullYear()} {siteConfig.name}
           </span>
+          {siteConfig.demo ? <span className={styles.demo}>{t("demo")}</span> : null}
           <span>{t("rights")}</span>
         </p>
         <p
@@ -106,6 +107,16 @@ export function Footer() {
           aria-hidden="true"
         >
           {siteConfig.name}
+        </p>
+        <p className={styles.made}>
+          {t("madeBy")}{" "}
+          {siteConfig.developerUrl ? (
+            <a href={siteConfig.developerUrl} target="_blank" rel="noopener noreferrer">
+              {siteConfig.developer}
+            </a>
+          ) : (
+            <span>{siteConfig.developer}</span>
+          )}
         </p>
       </div>
     </footer>

@@ -1,0 +1,36 @@
+.main {
+  min-height: 70svh;
+  padding: calc(var(--header-h) + var(--space-16)) var(--gutter) var(--section-y);
+}
+
+.title {
+  font-size: var(--fs-head);
+  line-height: 0.95;
+}
+
+.body {
+  display: grid;
+  gap: var(--space-8);
+  max-width: 42rem;
+  margin-top: var(--space-12);
+}
+
+.h {
+  margin-bottom: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--fs-lead);
+  font-weight: 600;
+  letter-spacing: var(--tracking-body);
+  text-transform: none;
+}
+
+.p {
+  max-width: 42rem;
+  font-size: var(--fs-body);
+  line-height: 1.55;
+}
+
+.p a {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}

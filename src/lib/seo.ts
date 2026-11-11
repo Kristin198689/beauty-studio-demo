@@ -20,6 +20,9 @@ export function buildMetadata({
   for (const l of routing.locales) languages[l] = `/${l}${path}`;
   languages["x-default"] = `/${routing.defaultLocale}${path}`;
 
+  // Same picture for Facebook, WhatsApp, Telegram, LinkedIn and X (1200x630, one per language)
+  const image = { url: `/og/og-${locale}.jpg`, width: 1200, height: 630, alt: title };
+
   return {
     title,
     description,
@@ -31,7 +34,8 @@ export function buildMetadata({
       description,
       url: `/${locale}${path}`,
       locale: ogLocale[locale] ?? locale,
+      images: [image],
     },
-    twitter: { card: "summary_large_image", title, description },
+    twitter: { card: "summary_large_image", title, description, images: [image.url] },
   };
 }
