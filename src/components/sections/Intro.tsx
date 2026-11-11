@@ -7,14 +7,14 @@ export function Intro() {
 
   return (
     <section className={styles.intro} data-chapter="paper" aria-label={t("a")}>
-      <p className={`${styles.text} reveal`}>
+      <p className={styles.text} data-lightwords>
         {t("a")}{" "}
         <span className={styles.frame} aria-hidden="true">
-          <Photo slot="introA" sizes="80px" mask />
+          <Photo slot="introA" sizes="80px" mask shine={false} />
         </span>{" "}
         {t("b")}{" "}
         <span className={styles.frame} aria-hidden="true">
-          <Photo slot="introB" sizes="80px" mask />
+          <Photo slot="introB" sizes="80px" mask shine={false} />
         </span>{" "}
         {t("c")}
       </p>

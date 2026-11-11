@@ -1,0 +1,74 @@
+.section {
+  background: var(--color-field);
+  color: var(--color-on-field);
+}
+
+.pin {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+.back {
+  position: relative;
+  min-height: 100svh;
+}
+
+.fig {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+.door {
+  display: none;
+}
+
+.section[data-on="true"] .pin {
+  height: 100svh;
+  min-height: 0;
+}
+
+.section[data-on="true"] .back {
+  position: absolute;
+  inset: 0;
+}
+
+.section[data-on="true"] .door {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  padding-inline: var(--gutter);
+  background: var(--p-paper);
+  color: var(--p-ink);
+  font-size: clamp(2.25rem, 13vw, 14rem);
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.section[data-on="true"] .left {
+  left: 0;
+  justify-content: flex-end;
+}
+
+.section[data-on="true"] .right {
+  right: 0;
+  justify-content: flex-start;
+}
+
+:global(html[lang="uk"]) .section[data-on="true"] .door {
+  font-size: clamp(1.75rem, 9vw, 10rem);
+}
+
+:global(html[lang="de"]) .section[data-on="true"] .door {
+  font-size: clamp(2.25rem, 12vw, 13rem);
+}

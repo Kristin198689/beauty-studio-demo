@@ -101,3 +101,32 @@
     display: none !important;
   }
 }
+
+.lens {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 96;
+  display: none;
+  width: 11rem;
+  height: 11rem;
+  border-radius: 50%;
+  border: 2px solid var(--p-paper);
+  background-repeat: no-repeat;
+  box-shadow: 0 12px 36px rgb(0 0 0 / 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms linear;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lens {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lens {
+    display: none !important;
+  }
+}

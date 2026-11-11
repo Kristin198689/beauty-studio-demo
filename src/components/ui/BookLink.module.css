@@ -1,4 +1,7 @@
 .button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   display: inline-flex;
   align-items: center;
   min-height: 3rem;
@@ -19,4 +22,20 @@
 .button:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 3px;
+}
+
+/* Press fills the button like a held key, release snaps back */
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: color-mix(in srgb, var(--btn-ink, var(--color-on-accent)) 26%, transparent);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 200ms var(--ease-out);
+}
+
+.button:active::before {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 700ms linear;
 }

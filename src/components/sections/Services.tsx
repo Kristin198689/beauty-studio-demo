@@ -22,7 +22,7 @@ export function Services() {
 
       <div className={styles.body}>
         <div className={styles.portrait}>
-          <Photo slot="servicesPortrait" sizes="(min-width: 56rem) 22vw, 60vw" mask parallax={0.08} />
+          <Photo slot="servicesPortrait" sizes="(min-width: 56rem) 22vw, 60vw" mask parallax={0.08} lens />
         </div>
         <div className={styles.table}>
           <p className={styles.label}>{t("label")}</p>
@@ -57,13 +57,13 @@ export function Services() {
       </div>
       <ServicePreview>
         <div data-preview="lashes">
-          <Photo slot="previewLashes" sizes="18vw" />
+          <Photo slot="previewLashes" sizes="18vw" shine={false} />
         </div>
         <div data-preview="nails">
-          <Photo slot="previewNails" sizes="18vw" />
+          <Photo slot="previewNails" sizes="18vw" shine={false} />
         </div>
         <div data-preview="hair">
-          <Photo slot="previewHair" sizes="18vw" />
+          <Photo slot="previewHair" sizes="18vw" shine={false} />
         </div>
       </ServicePreview>
     </section>

@@ -8,9 +8,11 @@
   width: 3.25rem;
   height: 3.25rem;
   border-radius: 50%;
-  background: #fff;
-  color: #000;
-  mix-blend-mode: difference;
+  background: var(--p-paper);
+  color: var(--p-ink);
+  box-shadow:
+    0 0 0 1px rgb(0 0 0 / 0.18),
+    0 8px 24px rgb(0 0 0 / 0.28);
   opacity: 0;
   transform: scale(0.6);
   pointer-events: none;

@@ -199,3 +199,8 @@ body::after {
     animation: none;
   }
 }
+
+/* Words that light up on scroll */
+.lw {
+  display: inline;
+}

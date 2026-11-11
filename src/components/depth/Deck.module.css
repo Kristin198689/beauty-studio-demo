@@ -1,0 +1,83 @@
+.section {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.pin {
+  position: relative;
+  display: grid;
+  gap: var(--space-8);
+  min-height: 100svh;
+  padding: var(--space-16) var(--gutter);
+  overflow: hidden;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fs-head);
+  line-height: 0.95;
+}
+
+.hint {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: var(--space-4);
+}
+
+.card {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 5;
+}
+
+.section[data-on="true"] .pin {
+  display: block;
+  height: 100svh;
+  min-height: 0;
+  padding: 0;
+}
+
+.section[data-on="true"] .title {
+  position: absolute;
+  top: calc(var(--header-h) + var(--space-6));
+  left: var(--gutter);
+  z-index: 20;
+}
+
+.section[data-on="true"] .hint {
+  position: absolute;
+  left: var(--gutter);
+  bottom: var(--space-6);
+  z-index: 20;
+}
+
+.section[data-on="true"] .stack {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.section[data-on="true"] .card {
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  width: min(58vw, 24rem);
+  translate: -50% -50%;
+  box-shadow: 0 24px 60px rgb(0 0 0 / 0.28);
+  will-change: transform;
+}
+
+@media (min-width: 56rem) {
+  .section[data-on="true"] .card {
+    left: 62%;
+  }
+}

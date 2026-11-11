@@ -1,6 +1,7 @@
 .header {
-  --btn-bg: #fff;
-  --btn-ink: #000;
+  --header-ink: var(--color-text);
+  --btn-bg: var(--color-accent);
+  --btn-ink: var(--color-on-accent);
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 30;
@@ -10,9 +11,10 @@
   gap: var(--space-6);
   height: var(--header-h);
   padding-inline: var(--gutter);
-  color: #fff;
-  mix-blend-mode: difference;
-  transition: transform 500ms var(--ease-out);
+  color: var(--header-ink);
+  transition:
+    transform 500ms var(--ease-out),
+    color 300ms var(--ease-out);
 }
 
 .header[data-ink="field"] {
@@ -27,8 +29,7 @@
   --btn-ink: var(--color-plum);
 }
 
-/* Always white; the difference blend inverts it over light and dark sections.
-   The header slides away when scrolling down and returns when scrolling up. */
+/* The header slides away when scrolling down and returns when scrolling up. */
 .header[data-hidden="true"] {
   transform: translateY(-100%);
 }

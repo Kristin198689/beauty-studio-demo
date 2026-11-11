@@ -1,0 +1,30 @@
+.orb {
+  --s: clamp(8rem, 19vmin, 17rem);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  width: var(--s);
+  height: var(--s);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 55.99rem) {
+  .orb {
+    --s: 7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb {
+    display: none;
+  }
+}

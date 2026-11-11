@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { images } from "@/config/images";
 import { siteConfig, whatsappHref } from "@/config/site";
 import { BookLink } from "./ui/BookLink";
 import { BackToTop } from "./BackToTop";
@@ -93,7 +94,11 @@ export function Footer() {
           </span>
           <span>{t("rights")}</span>
         </p>
-        <p className={styles.wordmark} aria-hidden="true">
+        <p
+          className={`${styles.wordmark} ${images.footerFill ? styles.filled : ""}`}
+          style={images.footerFill ? ({ "--fill": `url(${images.footerFill})` } as React.CSSProperties) : undefined}
+          aria-hidden="true"
+        >
           {siteConfig.name}
         </p>
       </div>

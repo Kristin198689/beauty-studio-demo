@@ -1,7 +1,8 @@
 import { useTranslations } from "next-intl";
-import { heroVideo } from "@/config/images";
+import { heroVideo, images } from "@/config/images";
 import { Photo } from "../ui/Photo";
 import { BookLink } from "../ui/BookLink";
+import { ChromeBlob } from "../motion/ChromeBlob";
 import styles from "./Hero.module.css";
 
 export function Hero() {
@@ -11,23 +12,28 @@ export function Hero() {
   return (
     <section className={styles.hero} data-chapter="field">
       <div className={styles.bg} aria-hidden="true">
-        {heroVideo ? (
-          <video
-            className={styles.video}
-            src={heroVideo}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          />
-        ) : null}
         <div className={styles.bgDesktop}>
-          <Photo slot="heroBgDesktop" sizes="100vw" priority parallax={0.06} />
+          <Photo slot="heroBgDesktop" sizes="100vw" priority shine={false} />
+          {heroVideo ? (
+            <video
+              className={styles.video}
+              src={heroVideo}
+              poster={images.heroBgDesktop ?? undefined}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          ) : null}
         </div>
         <div className={styles.bgMobile}>
-          <Photo slot="heroBgMobile" sizes="100vw" priority parallax={0.05} />
+          <Photo slot="heroBgMobile" sizes="100vw" priority shine={false} />
         </div>
+      </div>
+
+      <div className={styles.chrome} aria-hidden="true">
+        <ChromeBlob />
       </div>
 
       <p className={styles.vertical} aria-hidden="true">
@@ -39,7 +45,7 @@ export function Hero() {
         <span className={styles.line}>
           {t("line2Start")}
           <span className={styles.slot} aria-hidden="true">
-            <Photo slot="heroSlot" sizes="(min-width: 1024px) 30vw, 50vw" mask />
+            <Photo slot="heroSlot" sizes="(min-width: 1024px) 30vw, 50vw" mask shine={false} />
           </span>
           {t.rich("line2End", { em: (c) => <em>{c}</em> })}
         </span>

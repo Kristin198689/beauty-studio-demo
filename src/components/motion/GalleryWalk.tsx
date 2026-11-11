@@ -33,6 +33,8 @@ export function GalleryWalk({
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       section.dataset.pinned = "true";
       const distance = () => Math.max(0, track.scrollWidth - window.innerWidth);
+      // The track moves faster than the page scrolls, so a long walk does not feel endless
+      const run = () => distance() * 0.7;
 
       const walk = gsap.to(track, {
         x: () => -distance(),
@@ -40,7 +42,7 @@ export function GalleryWalk({
         scrollTrigger: {
           trigger: pin,
           start: "top top",
-          end: () => "+=" + distance(),
+          end: () => "+=" + run(),
           pin: true,
           scrub: 0.7,
           invalidateOnRefresh: true,
@@ -58,7 +60,7 @@ export function GalleryWalk({
             scrollTrigger: {
               trigger: pin,
               start: "top top",
-              end: () => "+=" + distance(),
+              end: () => "+=" + run(),
               scrub: true,
               invalidateOnRefresh: true,
             },

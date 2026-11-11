@@ -1,0 +1,51 @@
+.lid {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 85svh;
+  z-index: 91;
+  pointer-events: none;
+}
+
+.top {
+  top: 0;
+  transform: translateY(-100%);
+}
+
+.bot {
+  bottom: 0;
+  transform: translateY(100%);
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.fill {
+  fill: var(--p-ink);
+}
+
+.lash,
+.lashBot {
+  fill: none;
+  stroke: var(--p-ink);
+  stroke-width: 2.4px;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.lashBot {
+  stroke-width: 1.6px;
+  transform: scaleY(-1);
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lid {
+    display: none;
+  }
+}

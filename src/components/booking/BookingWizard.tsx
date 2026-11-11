@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { siteConfig, whatsappHref } from "@/config/site";
 import styles from "./BookingWizard.module.css";
@@ -12,6 +13,21 @@ const STEPS = ["service", "day", "time", "details", "review"] as const;
 type Service = (typeof services)[number];
 type Time = (typeof times)[number];
 
+function nextDays(locale: string, count = 28) {
+  const wd = new Intl.DateTimeFormat(locale, { weekday: "short" });
+  const mo = new Intl.DateTimeFormat(locale, { month: "short" });
+  const out: { iso: string; wd: string; dn: number; mo: string }[] = [];
+  const base = new Date();
+  base.setHours(12, 0, 0, 0);
+  for (let i = 0; i < count; i++) {
+    const d = new Date(base);
+    d.setDate(base.getDate() + i);
+    const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    out.push({ iso, wd: wd.format(d), dn: d.getDate(), mo: mo.format(d) });
+  }
+  return out;
+}
+
 function todayIso(): string {
   const d = new Date();
   d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
@@ -22,12 +38,17 @@ export function BookingWizard() {
   const t = useTranslations("booking");
   const s = useTranslations("services");
   const locale = useLocale();
-  const [step, setStep] = useState(0);
-  const [service, setService] = useState<Service | null>(null);
+  const params = useSearchParams();
+  const preService = params.get("service");
+  const initialService = (services as readonly string[]).includes(preService ?? "")
+    ? (preService as Service)
+    : null;
+  const [step, setStep] = useState(initialService ? 1 : 0);
+  const [service, setService] = useState<Service | null>(initialService);
   const [day, setDay] = useState("");
   const [time, setTime] = useState<Time | null>(null);
   const [name, setName] = useState("");
-  const [note, setNote] = useState("");
+  const [note, setNote] = useState((params.get("note") ?? "").slice(0, 400));
   const [error, setError] = useState("");
   const [done, setDone] = useState(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -149,19 +170,25 @@ export function BookingWizard() {
         )}
 
         {current === "day" && (
-          <div className={styles.field}>
-            <label htmlFor="day" className="srOnly">
-              {t("steps.day")}
-            </label>
-            <input
-              id="day"
-              type="date"
-              className={styles.input}
-              min={todayIso()}
-              value={day}
-              onChange={(e) => setDay(e.target.value)}
-            />
-          </div>
+          <fieldset className={styles.days} data-lenis-prevent>
+            <legend className="srOnly">{t("daysLegend")}</legend>
+            {nextDays(locale).map((d) => (
+              <label key={d.iso} className={styles.day}>
+                <input
+                  type="radio"
+                  name="day"
+                  value={d.iso}
+                  checked={day === d.iso}
+                  onChange={() => setDay(d.iso)}
+                />
+                <span>
+                  <small>{d.wd}</small>
+                  <b>{d.dn}</b>
+                  <small>{d.mo}</small>
+                </span>
+              </label>
+            ))}
+          </fieldset>
         )}
 
         {current === "time" && (

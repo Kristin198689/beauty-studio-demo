@@ -5,7 +5,9 @@ import { usePathname, useRouter } from "next/navigation";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+import { siteConfig } from "@/config/site";
 import { splitChars } from "./split";
+import { Lids } from "./Lids";
 import styles from "./Motion.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -26,6 +28,8 @@ export function Motion({ name }: { name: string }) {
   const preRef = useRef<HTMLDivElement>(null);
   const countRef = useRef<HTMLSpanElement>(null);
   const curtainRef = useRef<HTMLDivElement>(null);
+  const lidTopRef = useRef<HTMLDivElement>(null);
+  const lidBotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLSpanElement>(null);
   const lenisRef = useRef<Lenis | null>(null);
@@ -134,6 +138,59 @@ export function Motion({ name }: { name: string }) {
       });
     }
 
+    // Glossy shine that follows the pointer or finger over photos
+    const onShine = (e: PointerEvent) => {
+      const el = (e.target as Element | null)?.closest<HTMLElement>("[data-shine]");
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      el.style.setProperty("--sx", `${((e.clientX - r.left) / r.width) * 100}%`);
+      el.style.setProperty("--sy", `${((e.clientY - r.top) / r.height) * 100}%`);
+    };
+    window.addEventListener("pointermove", onShine, { passive: true });
+    cleanups.push(() => window.removeEventListener("pointermove", onShine));
+
+    // Haptic tick on taps (phones that support it)
+    if (window.matchMedia("(pointer: coarse)").matches && "vibrate" in navigator) {
+      const onTap = (e: PointerEvent) => {
+        if ((e.target as Element | null)?.closest("a, button, label")) navigator.vibrate(8);
+      };
+      document.addEventListener("pointerdown", onTap, { passive: true });
+      cleanups.push(() => document.removeEventListener("pointerdown", onTap));
+    }
+
+    // Magnifier lens over [data-lens] photos (desktop)
+    if (window.matchMedia(FINE).matches) {
+      const R = 88;
+      const Z = 2.4;
+      const lens = document.createElement("div");
+      lens.className = styles.lens;
+      lens.setAttribute("aria-hidden", "true");
+      document.body.appendChild(lens);
+      const onLens = (e: PointerEvent) => {
+        const el = (e.target as Element | null)?.closest<HTMLElement>("[data-lens]");
+        const img = el?.querySelector("img");
+        if (!el || !img || !img.complete || !img.naturalWidth) {
+          lens.style.opacity = "0";
+          return;
+        }
+        const r = img.getBoundingClientRect();
+        const s = Math.max(r.width / img.naturalWidth, r.height / img.naturalHeight);
+        const offX = (r.width - img.naturalWidth * s) / 2;
+        const offY = (r.height - img.naturalHeight * s) / 2;
+        lens.style.opacity = "1";
+        lens.style.transform = `translate(${e.clientX - R}px, ${e.clientY - R}px)`;
+        lens.style.backgroundImage = `url("${img.currentSrc}")`;
+        lens.style.backgroundSize = `${img.naturalWidth * s * Z}px ${img.naturalHeight * s * Z}px`;
+        lens.style.backgroundPosition = `${R - (e.clientX - r.left - offX) * Z}px ${R - (e.clientY - r.top - offY) * Z}px`;
+      };
+      window.addEventListener("pointermove", onLens, { passive: true });
+      document.addEventListener("pointerleave", () => (lens.style.opacity = "0"));
+      cleanups.push(() => {
+        window.removeEventListener("pointermove", onLens);
+        lens.remove();
+      });
+    }
+
     // Text scramble on hover: [data-scramble] letters shuffle and settle left to right
     if (window.matchMedia(FINE).matches) {
       const LATIN_UP = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -188,20 +245,23 @@ export function Motion({ name }: { name: string }) {
       if (url.origin !== location.origin) return;
       if (url.pathname === location.pathname) return;
       const curtain = curtainRef.current;
-      if (!curtain) return;
+      const top = lidTopRef.current;
+      const bot = lidBotRef.current;
+      if (!curtain || !top || !bot) return;
       e.preventDefault();
       coveredRef.current = true;
       lenis.stop();
-      gsap.fromTo(
-        curtain,
-        { yPercent: 100 },
-        {
-          yPercent: 0,
-          duration: 0.7,
-          ease: "expo.inOut",
-          onComplete: () => router.push(url.pathname + url.search + url.hash),
-        },
-      );
+      const go = () => router.push(url.pathname + url.search + url.hash);
+      if (siteConfig.transition === "blink") {
+        gsap.to(top, { yPercent: 0, duration: 0.55, ease: "power3.in" });
+        gsap.to(bot, { yPercent: 0, duration: 0.55, ease: "power3.in", onComplete: go });
+      } else {
+        gsap.fromTo(
+          curtain,
+          { yPercent: 100 },
+          { yPercent: 0, duration: 0.7, ease: "expo.inOut", onComplete: go },
+        );
+      }
     };
     document.addEventListener("click", onClick, true);
     cleanups.push(() => document.removeEventListener("click", onClick, true));
@@ -213,19 +273,32 @@ export function Motion({ name }: { name: string }) {
   useEffect(() => {
     const reduce = window.matchMedia(REDUCE).matches;
     const curtain = curtainRef.current;
-    if (curtain && coveredRef.current) {
+    const top = lidTopRef.current;
+    const bot = lidBotRef.current;
+    if (curtain && top && bot && coveredRef.current) {
       coveredRef.current = false;
       lenisRef.current?.scrollTo(0, { immediate: true });
-      gsap.to(curtain, {
-        yPercent: -100,
-        duration: 0.9,
-        delay: 0.15,
-        ease: "expo.inOut",
-        onComplete: () => {
-          gsap.set(curtain, { yPercent: 100 });
-          lenisRef.current?.start();
-        },
-      });
+      if (siteConfig.transition === "blink") {
+        gsap.to(top, { yPercent: -100, duration: 0.8, delay: 0.12, ease: "power3.out" });
+        gsap.to(bot, {
+          yPercent: 100,
+          duration: 0.8,
+          delay: 0.12,
+          ease: "power3.out",
+          onComplete: () => lenisRef.current?.start(),
+        });
+      } else {
+        gsap.to(curtain, {
+          yPercent: -100,
+          duration: 0.9,
+          delay: 0.15,
+          ease: "expo.inOut",
+          onComplete: () => {
+            gsap.set(curtain, { yPercent: 100 });
+            lenisRef.current?.start();
+          },
+        });
+      }
     }
 
     if (reduce) {
@@ -299,6 +372,41 @@ export function Motion({ name }: { name: string }) {
           );
         });
 
+        // Statement lights up word by word as you scroll
+        document.querySelectorAll<HTMLElement>("[data-lightwords]").forEach((el) => {
+          if (el.dataset.lwDone !== "1") {
+            const walk = (node: Node) => {
+              if (node.nodeType === Node.TEXT_NODE) {
+                const frag = document.createDocumentFragment();
+                (node.textContent ?? "").split(/(\s+)/).forEach((part) => {
+                  if (!part) return;
+                  if (/^\s+$/.test(part)) {
+                    frag.appendChild(document.createTextNode(" "));
+                    return;
+                  }
+                  const w = document.createElement("span");
+                  w.className = "lw";
+                  w.textContent = part;
+                  frag.appendChild(w);
+                });
+                node.parentNode?.replaceChild(frag, node);
+              } else if (node.nodeType === Node.ELEMENT_NODE) {
+                Array.from(node.childNodes).forEach(walk);
+              }
+            };
+            Array.from(el.childNodes).forEach(walk);
+            el.dataset.lwDone = "1";
+          }
+          const words = Array.from(el.querySelectorAll<HTMLElement>(".lw"));
+          gsap.set(words, { opacity: 0.2 });
+          gsap.to(words, {
+            opacity: 1,
+            ease: "none",
+            stagger: 0.1,
+            scrollTrigger: { trigger: el, start: "top 82%", end: "bottom 48%", scrub: true },
+          });
+        });
+
         ScrollTrigger.refresh();
       });
 
@@ -344,6 +452,7 @@ export function Motion({ name }: { name: string }) {
       <div ref={curtainRef} className={styles.curtain} aria-hidden="true">
         <span>{name}</span>
       </div>
+      <Lids topRef={lidTopRef} botRef={lidBotRef} />
       <div ref={ringRef} className={styles.ring} aria-hidden="true">
         <span ref={labelRef} className={styles.label} />
       </div>

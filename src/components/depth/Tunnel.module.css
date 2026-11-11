@@ -1,0 +1,92 @@
+.section {
+  background: var(--color-field);
+  color: var(--color-on-field);
+}
+
+.pin {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-16) var(--gutter) var(--space-8);
+  font-size: var(--fs-head);
+  line-height: 0.95;
+}
+
+.hint {
+  padding-inline: var(--gutter);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.scene {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: var(--space-4);
+  padding: var(--space-8) var(--gutter) var(--section-y);
+}
+
+.frame {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 5;
+}
+
+/* motion on: a corridor in perspective */
+.section[data-on="true"] .title {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  place-content: center;
+  padding: 0;
+  font-size: clamp(3.5rem, 15vw, 15rem);
+  text-align: center;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.section[data-on="true"] .hint {
+  position: absolute;
+  bottom: var(--space-6);
+  left: 0;
+  z-index: 3;
+}
+
+.section[data-on="true"] .pin {
+  height: 100svh;
+}
+
+.section[data-on="true"] .scene {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  padding: 0;
+  perspective: 900px;
+  perspective-origin: 50% 50%;
+}
+
+.section[data-on="true"] .frame {
+  --k: 1;
+  position: absolute;
+  left: calc(50% + var(--x) * var(--k) * 1vw);
+  top: calc(50% + var(--y) * 1vh);
+  width: min(30vw, 22rem);
+  translate: -50% -50%;
+  will-change: transform, opacity;
+}
+
+@media (max-width: 55.99rem) {
+  .section[data-on="true"] .frame {
+    --k: 0.55;
+    width: 54vw;
+  }
+}

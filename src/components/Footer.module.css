@@ -109,3 +109,16 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+/* Giant name filled with a photograph */
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .filled {
+    background-image: var(--fill);
+    background-size: cover;
+    background-position: 50% 52%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}

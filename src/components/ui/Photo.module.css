@@ -20,3 +20,31 @@
 .contain {
   object-fit: contain;
 }
+
+/* Glossy highlight that follows the pointer (set by the motion layer) */
+.photo[data-shine]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--sx, 50%) var(--sy, 50%),
+    rgb(255 255 255 / 0.42),
+    transparent 42%
+  );
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms var(--ease-out);
+}
+
+@media (hover: hover) {
+  .photo[data-shine]:hover::after {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo[data-shine]::after {
+    display: none;
+  }
+}

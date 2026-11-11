@@ -248,3 +248,73 @@
     animation: none;
   }
 }
+
+/* Week strip: swipe through the next four weeks */
+.days {
+  display: flex;
+  gap: var(--space-2);
+  margin: 0 calc(-1 * var(--gutter));
+  padding: 0 var(--gutter) var(--space-3);
+  border: 0;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.days::-webkit-scrollbar {
+  display: none;
+}
+
+.day {
+  position: relative;
+  flex: none;
+  scroll-snap-align: start;
+  cursor: pointer;
+}
+
+.day input {
+  position: absolute;
+  opacity: 0;
+  inset: 0;
+}
+
+.day span {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  min-width: 4.5rem;
+  padding: var(--space-4) var(--space-3);
+  background: color-mix(in srgb, currentColor 8%, transparent);
+  transition:
+    background 250ms var(--ease-out),
+    color 250ms var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.day small {
+  font-size: var(--fs-small);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+.day b {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.day input:checked + span {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.day input:focus-visible + span {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.day:active span {
+  transform: scale(0.96);
+}

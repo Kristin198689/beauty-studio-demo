@@ -1,0 +1,19 @@
+.section {
+  display: grid;
+  gap: var(--space-8);
+  padding: var(--section-y) var(--gutter);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fs-head);
+  line-height: 0.98;
+}
+
+.lead {
+  max-width: 30rem;
+  margin-bottom: var(--space-8);
+  font-size: var(--fs-lead);
+  line-height: 1.3;
+}

@@ -16,6 +16,10 @@ type Props = {
   fit?: "cover" | "contain";
   /** "multiply" melts a white studio background into the page colour */
   blend?: "multiply";
+  /** Soft highlight that follows the pointer or finger (default on) */
+  shine?: boolean;
+  /** Round magnifier that follows the pointer on desktop */
+  lens?: boolean;
 };
 
 // Fills its parent (parent sets size / aspect-ratio). Placeholder until the slot has a file.
@@ -29,6 +33,8 @@ export function Photo({
   parallax,
   fit = "cover",
   blend,
+  shine = true,
+  lens,
 }: Props) {
   const src = images[slot];
   return (
@@ -36,6 +42,8 @@ export function Photo({
       className={`${styles.photo} ${fit === "contain" ? styles.cut : ""} ${className ?? ""}`}
       data-slot={slot}
       data-mask={mask ? "" : undefined}
+      data-shine={shine && fit === "cover" ? "" : undefined}
+      data-lens={lens ? "" : undefined}
       style={blend ? { mixBlendMode: blend } : undefined}
     >
       {src ? (

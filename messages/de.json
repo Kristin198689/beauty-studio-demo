@@ -19,7 +19,8 @@
     "line2Start": "und",
     "line2End": "<em>Haare</em>",
     "lead": "Wimpernverlängerung, Maniküre und Friseur unter einem Dach, mit Zeit für jedes Detail.",
-    "cta": "Termin buchen"
+    "cta": "Termin buchen",
+    "tilt": "Handy neigen"
   },
   "intro": {
     "a": "Ein ruhiges Studio für",
@@ -63,7 +64,15 @@
       "Licht",
       "Kontrast",
       "Präzision",
-      "Finish"
+      "Finish",
+      "Textur",
+      "Schimmer",
+      "Profil",
+      "Fokus",
+      "Haut",
+      "Fragmente",
+      "Satin",
+      "Rot"
     ]
   },
   "about": {
@@ -180,6 +189,124 @@
     "noNumber": "TODO: Die WhatsApp-Nummer des Studios ist noch nicht hinterlegt.",
     "thanksTitle": "Danke",
     "thanksText": "Ihre Nachricht liegt in WhatsApp bereit. Die genaue Uhrzeit bestätigen wir persönlich.",
-    "again": "Weiteren Termin buchen"
+    "again": "Weiteren Termin buchen",
+    "daysLegend": "Tag wählen"
+  },
+  "quiz": {
+    "title1": "Finden Sie Ihre",
+    "title2": "<em>Behandlung</em>",
+    "lead": "Drei kurze Fragen, eine klare Antwort.",
+    "question": "Frage",
+    "of": "von",
+    "q1": "Was möchten Sie verändern?",
+    "q2": "Wie mögen Sie es?",
+    "q3": "Wie oft können Sie kommen?",
+    "a1": {
+      "eyes": "Augen",
+      "hands": "Hände",
+      "hair": "Haare"
+    },
+    "a2": {
+      "natural": "Natürlich",
+      "bold": "Auffällig"
+    },
+    "a3": {
+      "often": "Alle paar Wochen",
+      "monthly": "Etwa monatlich",
+      "rarely": "Selten"
+    },
+    "freq": {
+      "often": "Regelmäßige Termine halten es perfekt.",
+      "monthly": "Monatliches Auffüllen passt gut.",
+      "rarely": "Ein langlebiges Ergebnis passt zu Ihnen."
+    },
+    "result": "Unser Vorschlag",
+    "cta": "Diesen Termin buchen",
+    "restart": "Von vorn beginnen",
+    "noteLabel": "Quiz"
+  },
+  "spotlight": {
+    "title1": "Bewegen Sie das",
+    "title2": "<em>Licht</em>",
+    "hint": "Über das Foto fahren"
+  },
+  "depth": {
+    "scroll": "Scrollen",
+    "drag": "Maus bewegen",
+    "tunnel": {
+      "title1": "Treten Sie",
+      "title2": "<em>ein</em>"
+    },
+    "pupil": {
+      "title1": "Schauen Sie",
+      "title2": "<em>genauer hin</em>",
+      "reveal": "Jedes Detail zählt"
+    },
+    "deck": {
+      "title1": "Ziehen Sie",
+      "title2": "<em>eine Karte</em>"
+    },
+    "carousel": {
+      "title1": "Drehen Sie die",
+      "title2": "<em>Welt</em>"
+    },
+    "wall": {
+      "title1": "Bewegen",
+      "title2": "<em>Sie sich</em>"
+    },
+    "book": {
+      "title1": "Das",
+      "title2": "<em>Lookbook</em>"
+    },
+    "doors": {
+      "left": "Mach",
+      "right": "<em>auf</em>"
+    },
+    "floor": {
+      "title1": "Betreten Sie",
+      "title2": "<em>den Boden</em>"
+    }
+  },
+  "dividers": {
+    "a": "Jedes Detail ist <em>durchdacht</em>, nichts wird gehetzt",
+    "principles": {
+      "title": "Was uns wichtig ist",
+      "items": [
+        {
+          "t": "Präzision",
+          "d": "Sorgfältige Arbeit, bis zur letzten Wimper und zum letzten Millimeter."
+        },
+        {
+          "t": "Ruhe",
+          "d": "Ein stiller Ort, an dem Sie niemand hetzt."
+        },
+        {
+          "t": "Ehrlichkeit",
+          "d": "Klare Beratung dazu, was zu Ihnen passt und was nicht."
+        }
+      ]
+    },
+    "b": "Licht, Haut, <em>Detail</em>",
+    "process": {
+      "title": "So läuft ein Termin ab",
+      "items": [
+        {
+          "t": "Gespräch",
+          "d": "Wir hören zu und klären, was Sie sich wünschen."
+        },
+        {
+          "t": "Gestalten",
+          "d": "Wir nehmen uns die Zeit, die die Behandlung braucht."
+        },
+        {
+          "t": "Pflege",
+          "d": "Sie gehen mit Tipps zur Pflege des Ergebnisses nach Hause."
+        }
+      ]
+    },
+    "c": {
+      "text": "Behandlung wählen, Tag aussuchen, den <em>Rest</em> übernehmen wir",
+      "cta": "Termin buchen"
+    }
   }
 }

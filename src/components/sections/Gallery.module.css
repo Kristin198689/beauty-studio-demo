@@ -74,21 +74,16 @@
   pointer-events: none;
 }
 
+.word.long {
+  font-size: clamp(5rem, 19vw, 20rem);
+}
+
 .word.italic {
   font-family: var(--font-accent);
   font-style: italic;
   font-weight: 300;
   text-transform: none;
   color: color-mix(in srgb, var(--color-plum-bright) 55%, transparent);
-}
-
-.cut {
-  position: absolute;
-  inset: auto auto 0 50%;
-  width: min(60vw, 28rem);
-  height: min(78svh, 46rem);
-  margin-left: -4rem;
-  pointer-events: none;
 }
 
 .pair {

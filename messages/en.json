@@ -19,7 +19,8 @@
     "line2Start": "and",
     "line2End": "<em>hair</em>",
     "lead": "Lash extensions, manicure and hairdressing under one roof, with time for every detail.",
-    "cta": "Book an appointment"
+    "cta": "Book an appointment",
+    "tilt": "Tilt your phone"
   },
   "intro": {
     "a": "A calm studio for",
@@ -63,7 +64,15 @@
       "Light",
       "Contrast",
       "Precision",
-      "Finish"
+      "Finish",
+      "Texture",
+      "Shine",
+      "Profile",
+      "Focus",
+      "Skin",
+      "Fragments",
+      "Satin",
+      "Red"
     ]
   },
   "about": {
@@ -180,6 +189,124 @@
     "noNumber": "TODO: the studio WhatsApp number is not set yet.",
     "thanksTitle": "Thank you",
     "thanksText": "Your message is ready in WhatsApp. We confirm the exact time personally.",
-    "again": "Book another appointment"
+    "again": "Book another appointment",
+    "daysLegend": "Choose a day"
+  },
+  "quiz": {
+    "title1": "Find your",
+    "title2": "<em>treatment</em>",
+    "lead": "Three quick questions, one clear answer.",
+    "question": "Question",
+    "of": "of",
+    "q1": "What would you like to change?",
+    "q2": "How do you like it?",
+    "q3": "How often can you visit?",
+    "a1": {
+      "eyes": "Eyes",
+      "hands": "Hands",
+      "hair": "Hair"
+    },
+    "a2": {
+      "natural": "Natural",
+      "bold": "Bold"
+    },
+    "a3": {
+      "often": "Every few weeks",
+      "monthly": "About monthly",
+      "rarely": "Rarely"
+    },
+    "freq": {
+      "often": "Regular visits keep it perfect.",
+      "monthly": "Monthly refills work well.",
+      "rarely": "A long-lasting result suits you."
+    },
+    "result": "Our suggestion",
+    "cta": "Book this",
+    "restart": "Start again",
+    "noteLabel": "Quiz"
+  },
+  "spotlight": {
+    "title1": "Move the",
+    "title2": "<em>light</em>",
+    "hint": "Drag across the photo"
+  },
+  "depth": {
+    "scroll": "Scroll",
+    "drag": "Move your cursor",
+    "tunnel": {
+      "title1": "Step",
+      "title2": "<em>inside</em>"
+    },
+    "pupil": {
+      "title1": "Look",
+      "title2": "<em>closer</em>",
+      "reveal": "Every detail counts"
+    },
+    "deck": {
+      "title1": "Pick a",
+      "title2": "<em>card</em>"
+    },
+    "carousel": {
+      "title1": "Turn the",
+      "title2": "<em>world</em>"
+    },
+    "wall": {
+      "title1": "Move",
+      "title2": "<em>around</em>"
+    },
+    "book": {
+      "title1": "The",
+      "title2": "<em>lookbook</em>"
+    },
+    "doors": {
+      "left": "Open",
+      "right": "<em>up</em>"
+    },
+    "floor": {
+      "title1": "Walk the",
+      "title2": "<em>floor</em>"
+    }
+  },
+  "dividers": {
+    "a": "Every detail is <em>considered</em>, nothing is rushed",
+    "principles": {
+      "title": "What we care about",
+      "items": [
+        {
+          "t": "Precision",
+          "d": "Careful work, down to the last lash and the last millimetre."
+        },
+        {
+          "t": "Calm",
+          "d": "A quiet place where nobody hurries you."
+        },
+        {
+          "t": "Honesty",
+          "d": "Clear advice about what suits you and what does not."
+        }
+      ]
+    },
+    "b": "Light, skin, <em>detail</em>",
+    "process": {
+      "title": "How a visit works",
+      "items": [
+        {
+          "t": "Talk",
+          "d": "We listen and agree on what you want."
+        },
+        {
+          "t": "Create",
+          "d": "We take the time the treatment needs."
+        },
+        {
+          "t": "Care",
+          "d": "You leave with advice on looking after the result."
+        }
+      ]
+    },
+    "c": {
+      "text": "Choose a treatment, pick a day, we do the <em>rest</em>",
+      "cta": "Book an appointment"
+    }
   }
 }

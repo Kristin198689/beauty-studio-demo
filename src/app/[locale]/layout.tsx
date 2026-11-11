@@ -8,6 +8,7 @@ import { routing } from "@/i18n/routing";
 import { buildMetadata } from "@/lib/seo";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { Companion } from "@/components/motion/Companion";
 import { Motion } from "@/components/motion/Motion";
 import { FloatingContact } from "@/components/FloatingContact";
 import { siteConfig } from "@/config/site";
@@ -48,6 +49,7 @@ export default async function LocaleLayout({
         </Script>
         <NextIntlClientProvider>
           <Motion name={siteConfig.name} />
+          <Companion />
           <Header />
           {children}
           <Footer />

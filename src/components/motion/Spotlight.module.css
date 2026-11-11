@@ -1,0 +1,51 @@
+.stage {
+  --x: 50%;
+  --y: 38%;
+  --r: 8rem;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #050505;
+  touch-action: pan-y;
+  cursor: none;
+}
+
+@media (min-width: 56rem) {
+  .stage {
+    --r: 12rem;
+  }
+}
+
+.stage > div {
+  position: absolute;
+  inset: 0;
+}
+
+/* the photograph in near darkness */
+.stage > div:first-child {
+  filter: brightness(0.2) saturate(0.5) contrast(1.15);
+}
+
+/* the same photograph, visible only inside the circle of light */
+.stage > div:last-child {
+  -webkit-mask-image: radial-gradient(
+    circle var(--r) at var(--x) var(--y),
+    #000 55%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), #000 55%, transparent 100%);
+}
+
+.stage[data-static="true"] {
+  cursor: auto;
+}
+
+.stage[data-static="true"] > div:first-child {
+  display: none;
+}
+
+.stage[data-static="true"] > div:last-child {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
