@@ -1,45 +1,47 @@
-# Beauty studio, шаблон сайта
+# Beauty Studio (demo)
 
-Next.js 16, TypeScript, CSS Modules, next-intl (de, uk, en), GSAP и Lenis для анимаций.
+![Beauty Studio hero](docs/screenshot.jpg)
 
-## Запуск
+A multilingual website template for a lash, nail and hair studio. It is built as a template: colours, type, texts, photos and contact details live in config files, so the next client is a day of work, not a rebuild.
+
+## Highlights
+
+- **Design tokens as the single source of truth**: palette, type scale, spacing and motion timings live in `src/styles/tokens.css`. Changing the primitives restyles the whole site.
+- **Motion with intent**: GSAP and Lenis, split-text reveals, a liquid chrome WebGL shape, depth sections (tunnel, doors, card deck), a magnifier lens and a text scramble on hover.
+- **Booking without a backend**: a step-by-step wizard (service, first and backup day, time of day, name) that prepares a WhatsApp message. Nothing is stored or sent to a server.
+- **Three languages**: German (default), Ukrainian and English with `next-intl`.
+- **SEO and security**: sitemap, manifest, structured data, security headers and a strict content security policy.
+
+## Stack
+
+Next.js 16, React 19, strict TypeScript, CSS Modules, GSAP, Lenis, next-intl. Node 20 or newer.
+
+## Run it
 
 ```bash
 npm install
-npm run dev      # разработка, http://localhost:3000
-npm run build    # проверка сборки
-npm run start    # боевой режим после build
+npm run dev      # http://localhost:3000
+npm run build
+npm run start
 ```
 
-Node 20 или новее.
+## What to change for a client
 
-## Что менять под клиента
-
-| Что | Где |
+| What | Where |
 |---|---|
-| Название студии, номер WhatsApp, телефон, e-mail, Instagram, выходные дни, занятые даты | `src/config/site.ts` |
-| Адрес сайта для SEO (sitemap, canonical) | переменная окружения `NEXT_PUBLIC_SITE_URL` на хостинге |
-| Цвета, размеры шрифтов, отступы, тайминги | `src/styles/tokens.css` |
-| Шрифты | `src/config/fonts.ts` |
-| Фото | `src/config/images.ts` и `src/config/pool.ts`, файлы в `public/images` |
-| Тексты на трёх языках | `messages/de.json`, `messages/uk.json`, `messages/en.json` |
-| Якоря и меню разделов | `src/config/sections.ts` |
-| Подпись разработчика и ссылки на студию | `developer`, `developerUrl`, `portfolioImprintUrl` в `src/config/site.ts` |
-| Демо-режим (пометки «демо-проект», демо-тексты Impressum и Datenschutz) | `siteConfig.demo` в `src/config/site.ts`, для реального клиента поставить `false` |
-| Превью для соцсетей и иконки | `python3 scripts/brand-assets.py` (берёт название из конфига, фото из hero и тексты из `messages`) |
-| Переход между страницами (моргание или шторка) | `siteConfig.transition` в `src/config/site.ts` |
+| Studio name, WhatsApp number, phone, email, Instagram, days off, booked dates | `src/config/site.ts` |
+| Site address for SEO (sitemap, canonical) | environment variable `NEXT_PUBLIC_SITE_URL` on the host |
+| Colours, font sizes, spacing, timings | `src/styles/tokens.css` |
+| Fonts | `src/config/fonts.ts` |
+| Photos | `src/config/images.ts` and `src/config/pool.ts`, files in `public/images` |
+| Texts in three languages | `messages/de.json`, `messages/uk.json`, `messages/en.json` |
+| Section anchors and menu | `src/config/sections.ts` |
+| Demo mode (demo labels, demo Impressum and privacy texts) | `siteConfig.demo` in `src/config/site.ts`, set to `false` for a real client |
+| Social preview images and icons | `python3 scripts/brand-assets.py` |
+| Page transition (blink or curtain) | `siteConfig.transition` in `src/config/site.ts` |
 
-Пока значения не заданы, на сайте стоят нейтральные заглушки: цены «по запросу», часы «по записи», регион Münsterland.
+Until values are set, the site shows neutral placeholders: prices "on request", hours "by appointment", region Münsterland.
 
-## Запись
+## Before launch
 
-Запись это заявка. Клиент выбирает услугу, основной и запасной день, время суток и имя, после чего открывается сообщение в WhatsApp. Сайт ничего не хранит и не отправляет на сервер. Подтверждает время мастер.
-
-## Перед запуском
-
-- Заполнить `src/config/site.ts` и заменить заглушки в `messages/*.json`: цены, часы, адрес, регион, способы оплаты, условия отмены.
-- Заменить тексты Impressum и Datenschutz, их должен проверить юрист.
-- Задать `NEXT_PUBLIC_SITE_URL`.
-- Пересобрать превью и иконки: `python3 scripts/brand-assets.py` (после смены названия или hero-фото).
-- Поставить `siteConfig.demo = false` и подставить настоящие Impressum и Datenschutz.
-- Заменить сгенерированные фото на настоящие, фото «до и после» только реальные.
+Fill `src/config/site.ts`, replace the placeholders in `messages/*.json` (prices, hours, address, region, payment methods, cancellation terms), and set `siteConfig.demo` to `false`.
